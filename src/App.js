@@ -20,7 +20,7 @@ function App() {
           </ul>
         </nav>
       </header>
-      <div className="flex w-full justify-center">
+      <section className="flex w-full justify-center">
         <div className="items-center flex-col flex gap-5 mt-10">
           <h1 className="text-5xl">Let there be live</h1>
           <h2 className="text-3xl">Your next best night ever is waiting</h2>
@@ -40,7 +40,37 @@ function App() {
             What do you want to see live?
           </div>
         </div>
-      </div>
+      </section>
+      <section className="flex flex-col p-20 gap-5">
+        <h2>Browse Events</h2>
+        <h2 className="text-3xl text-bold">Menteng Atas, ID</h2>
+        <div className="flex gap-5">
+          <button className="rounded-full border-2 px-2 py-1">
+            Change location
+          </button>
+          <button className="rounded-full border-2 px-2 py-1">
+            Filter by date
+          </button>
+        </div>
+      </section>
+      <hr></hr>
+      <section className="flex flex-col p-20 gap-5">
+        <h2 className="text-xl text-bold">Categories</h2>
+        <div className="grid grid-cols-4 gap-10">
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+        </div>
+      </section>
+      <section className="flex flex-col p-20 gap-5">
+        <h2 className="text-xl text-bold">Popular Events</h2>
+        <div className="grid grid-cols-3 gap-10">
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+          <div className="bg-black text-white rounded p-4">Concerts</div>
+        </div>
+      </section>
     </div>
   );
 }
