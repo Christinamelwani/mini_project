@@ -1,50 +1,66 @@
+import { useState } from "react";
 import "./App.css";
+import Event from "./components/event";
+import ModalComponent from "./components/modal";
+import Register from "./components/register";
 
 function App() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const register = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
   return (
     <div>
-      <header>
-        <nav className="flex justify-between">
-          <ul className="flex gap-5 p-4">
-            <li>Sports</li>
-            <li>Music</li>
-            <li>Shows</li>
-            <li>Cities</li>
-          </ul>
-          <ul className="flex gap-5 p-4">
-            <li>USD</li>
-            <li>Sell</li>
-            <li>Support</li>
-            <li>Login</li>
-          </ul>
-        </nav>
-      </header>
-      <section className="flex w-full justify-center">
-        <div className="items-center flex-col flex gap-5 mt-10">
-          <h1 className="text-5xl">Let there be live</h1>
-          <h2 className="text-3xl">Your next best night ever is waiting</h2>
-          <h2 className="text-3xl">And we have the tickets</h2>
+      <div
+        className="h-[80vh] text-white bg-cover bg-top"
+        style={{
+          backgroundImage:
+            "url(https://seatgeek.com/_next/image?url=https%3A%2F%2Fseatgeek.com%2Fimages%2Fimage_uploads%2Fhomepage%2Fhomepage-medium.jpg&w=3840&q=75)",
+        }}
+      >
+        <header className="p-4 md:px-8">
+          <nav className="flex justify-between">
+            <ul className="flex gap-5">
+              <li className="hidden md:block">Sports</li>
+              <li className="hidden md:block">Music</li>
+              <li className="hidden md:block">Shows</li>
+              <li className="hidden md:block">Cities</li>
+            </ul>
+            <ul className="flex gap-5">
+              <li className="hidden md:block">USD</li>
+              <li className="hidden md:block">Sell</li>
+              <li className="hidden md:block">Support</li>
+              <li className="hidden md:block">Login</li>
+            </ul>
+          </nav>
+        </header>
+        <section className="flex flex-col justify-center items-center h-[50vh] md:h-[60vh]">
+          <div className="bg-black p-4 text-center md:text-left md:w-1/2 md:ml-20 lg:ml-32">
+            <h1 className="text-5xl md:text-6xl">Let there be live</h1>
+            <h2 className="text-3xl md:text-4xl">
+              Your next best night ever is waiting
+            </h2>
+            <h2 className="text-3xl md:text-4xl">And we have the tickets</h2>
 
-          <div className="flex rounded border-2 p-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="25"
-              height="25"
-              viewBox="0 0 50 50"
-            >
-              <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
-            </svg>
-            What do you want to see live?
+            <div className="flex items-center mt-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 mr-2 text-white"
+                viewBox="0 0 50 50"
+              >
+                <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
+              </svg>
+              What do you want to see live?
+            </div>
           </div>
-        </div>
-      </section>
-      <section className="flex flex-col p-20 gap-5">
+        </section>
+      </div>
+      <section className="p-4 md:p-20 gap-5">
         <h2>Browse Events</h2>
-        <h2 className="text-3xl text-bold">Menteng Atas, ID</h2>
-        <div className="flex gap-5">
-          <button className="rounded-full border-2 px-2 py-1">
+        <h2 className="text-3xl font-bold">Menteng Atas, ID</h2>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+          <button className="rounded-full border-2 px-2 py-1 mb-2 md:mb-0">
             Change location
           </button>
           <button className="rounded-full border-2 px-2 py-1">
@@ -52,114 +68,137 @@ function App() {
           </button>
         </div>
       </section>
-      <hr></hr>
-      <section className="flex flex-col p-20 gap-5">
-        <h2 className="text-xl text-bold">Categories</h2>
-        <div className="grid grid-cols-4 gap-10">
+      <hr className="my-4" />
+      <section className="p-4 md:p-20 gap-5">
+        <h2 className="text-xl font-bold">Categories</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="bg-black text-white rounded p-4">Concerts</div>
           <div className="bg-black text-white rounded p-4">Concerts</div>
           <div className="bg-black text-white rounded p-4">Concerts</div>
           <div className="bg-black text-white rounded p-4">Concerts</div>
         </div>
       </section>
-      <section className="flex flex-col p-20 gap-5">
-        <h2 className="text-xl text-bold">Popular Events</h2>
-        <div className="grid grid-cols-3 gap-10">
-          <div className="bg-black text-white rounded p-4">Concerts</div>
-          <div className="bg-black text-white rounded p-4">Concerts</div>
-          <div className="bg-black text-white rounded p-4">Concerts</div>
+      <section className="p-4 md:p-20 gap-5">
+        <h2 className="text-xl font-bold">Popular Events</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <Event onRegister={register} />
+          <Event onRegister={register} />
+          <Event onRegister={register} />
         </div>
       </section>
-      <footer class="bg-white dark:bg-gray-900">
-        <div class="mx-auto w-full max-w-screen-xl">
-          <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+      <footer className="bg-white dark:bg-gray-900">
+        <div className="mx-auto w-full max-w-screen-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 py-6 lg:py-8">
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Helpful Links</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class=" hover:underline">FAQ</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">My Account</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Refunds</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Blog</a>
-                    </li>
-                </ul>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                Helpful Links
+              </h2>
+              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    FAQ
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    My Account
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Refunds
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Blog
+                  </a>
+                </li>
+              </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Discord Server</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Twitter</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Facebook</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Contact Us</a>
-                    </li>
-                </ul>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                Help center
+              </h2>
+              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Discord Server
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Twitter
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Facebook
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Privacy Policy</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Licensing</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                    </li>
-                </ul>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                Legal
+              </h2>
+              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Licensing
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
+                    Terms &amp; Conditions
+                  </a>
+                </li>
+              </ul>
             </div>
-        </div>
-        <div class="px-4 py-6 bg-gray-100 dark:bg-gray-900 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">Ticketmaster</a>. All Rights Reserved.
+          </div>
+          <div className="px-4 py-6 bg-gray-100 dark:bg-gray-900 md:flex md:items-center md:justify-between">
+            <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
+              © 2023 <a href="https://flowbite.com/">Purwadhika</a>. All Rights
+              Reserved.
             </span>
-            <div class="flex mt-4 space-x-5 sm:justify-center md:mt-0">
-                <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
-                        </svg>
-                      <span class="sr-only">Facebook page</span>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
-                            <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
-                        </svg>
-                      <span class="sr-only">Discord community</span>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
-                        <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
-                    </svg>
-                      <span class="sr-only">Twitter page</span>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
-                      </svg>
-                      <span class="sr-only">GitHub account</span>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                      <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
-                    </svg>
-                      <span class="sr-only">Dribbble account</span>
-                  </a>
+            <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              >
+                <svg
+                  className="w-4 h-4"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 8 19"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"
+                  ></path>
+                </svg>
+                <span className="sr-only">Facebook page</span>
+              </a>
+              {/* Other social media links */}
             </div>
           </div>
         </div>
       </footer>
+      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <Register />
+        <button onClick={closeModal}>Close</button>
+      </ModalComponent>
     </div>
   );
 }
