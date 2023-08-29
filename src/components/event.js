@@ -1,4 +1,4 @@
-export default function Event({ onRegister }) {
+export default function Event({ onOpenRegister }) {
   return (
     <div className="bg-black text-white rounded p-4">
       <img
@@ -10,7 +10,7 @@ export default function Event({ onRegister }) {
           Example Event
         </h3>
         <button
-          onClick={() => onRegister()}
+          onClick={() => onOpenRegister()}
           className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
         >
           Register

@@ -7,8 +7,8 @@ import Register from "./components/register";
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const register = () => setModalIsOpen(true);
-  const closeModal = () => setModalIsOpen(false);
+  const openRegisterModal = () => setModalIsOpen(true);
+  const closeRegisterModal = () => setModalIsOpen(false);
 
   return (
     <div>
@@ -81,9 +81,9 @@ function App() {
       <section className="p-4 md:p-20 gap-5">
         <h2 className="text-xl font-bold">Popular Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <Event onRegister={register} />
-          <Event onRegister={register} />
-          <Event onRegister={register} />
+          <Event onOpenRegister={openRegisterModal} />
+          <Event onOpenRegister={openRegisterModal} />
+          <Event onOpenRegister={openRegisterModal} />
         </div>
       </section>
       <footer className="bg-white dark:bg-gray-900">
@@ -195,9 +195,8 @@ function App() {
           </div>
         </div>
       </footer>
-      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeModal}>
+      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeRegisterModal}>
         <Register />
-        <button onClick={closeModal}>Close</button>
       </ModalComponent>
     </div>
   );
