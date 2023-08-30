@@ -1,5 +1,30 @@
 import { useState } from "react";
 
+function validateForm() {
+  const nameValue = document.getElementById("name").value;
+  const emailValue = document.getElementById("email").value;
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  
+  let isValid = true;
+  
+  if (!nameValue.trim()) {
+    nameError.textContent = "Name is required!";
+    isValid = false;
+  } else {
+    nameError.textContent = "";
+  }
+  
+  if (!emailValue.trim()) {
+    emailError.textContent = "Email is required!";
+    isValid = false;
+  } else {
+    emailError.textContent = "";
+  }
+  
+  return isValid;
+}
+
 export default function Register() {
   const [mode, setMode] = useState("register");
 
@@ -27,6 +52,7 @@ export default function Register() {
                   class="bg-orange-50 border border-orange-300 text-orange-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-orange-700 dark:border-orange-600 dark:placeholder-orange-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required="true"
                 />
+                <span id="nameError" class="text-red-500 text-xs"></span>
               </div>
               <div>
                 <label
@@ -43,6 +69,7 @@ export default function Register() {
                   placeholder="name@company.com"
                   required="true"
                 />
+                <span id="emailError" class="text-red-500 text-xs"></span>
               </div>
 
               <div>
@@ -63,7 +90,7 @@ export default function Register() {
               </div>
 
               <button
-                onClick={() => setMode("code")}
+                onClick={(e) => { if (validateForm()) setMode("code"); else e.preventDefault(); }}
                 class="w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 Register
