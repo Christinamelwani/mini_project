@@ -8,15 +8,16 @@ import { Link } from "react-router-dom";
 export default function Home() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [events, setEvents] = useState([]);
+  const [user, setUser] = useState({});
 
   const getEvents = async () => {
     const response = await api.get("/events");
     setEvents(response.data);
-    console.log(response.data, events);
   };
 
   useEffect(() => {
     getEvents();
+    setUser(JSON.parse(localStorage.getItem("user")));
   }, []);
 
   const openRegisterModal = () => setModalIsOpen(true);
@@ -51,7 +52,7 @@ export default function Home() {
         </header>
         <section className="flex flex-col justify-center items-center h-[50vh] md:h-[60vh]">
           <div className="bg-black p-4 text-center md:text-left md:w-1/2 md:ml-20 lg:ml-32">
-            <h1 className="text-5xl md:text-6xl">Let there be live</h1>
+            <h1 className="text-5xl md:text-6xl">Welcome, {user.name}!</h1>
             <h2 className="text-3xl md:text-4xl">
               Your next best night ever is waiting
             </h2>

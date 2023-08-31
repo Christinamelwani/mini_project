@@ -297,7 +297,8 @@
       "phone": "+6281234567890",
       "age": 28,
       "gender": "male",
-      "address": "Jl. Sudirman No. 123, Jakarta"
+      "address": "Jl. Sudirman No. 123, Jakarta",
+      "points": 0
     },
     {
       "id": 2,
@@ -307,7 +308,8 @@
       "phone": "+6282345678901",
       "age": 35,
       "gender": "female",
-      "address": "Jl. Ahmad Yani No. 456, Bandung"
+      "address": "Jl. Ahmad Yani No. 456, Bandung",
+      "points": 0
     },
     {
       "id": 3,
@@ -317,7 +319,8 @@
       "phone": "+6283456789012",
       "age": 22,
       "gender": "male",
-      "address": "Jl. Gajah Mada No. 789, Surabaya"
+      "address": "Jl. Gajah Mada No. 789, Surabaya",
+      "points": 0
     },
     {
       "id": 4,
@@ -327,7 +330,8 @@
       "phone": "+6284567890123",
       "age": 31,
       "gender": "female",
-      "address": "Jl. Diponegoro No. 234, Yogyakarta"
+      "address": "Jl. Diponegoro No. 234, Yogyakarta",
+      "points": 0
     },
     {
       "id": 5,
@@ -337,7 +341,8 @@
       "phone": "+6285678901234",
       "age": 27,
       "gender": "male",
-      "address": "Jl. Pahlawan No. 567, Semarang"
+      "address": "Jl. Pahlawan No. 567, Semarang",
+      "points": 0
     },
     {
       "id": 6,
@@ -347,7 +352,8 @@
       "phone": "+6286789012345",
       "age": 29,
       "gender": "female",
-      "address": "Jl. Merdeka No. 678, Medan"
+      "address": "Jl. Merdeka No. 678, Medan",
+      "points": 0
     },
     {
       "id": 7,
@@ -357,7 +363,8 @@
       "phone": "+6287890123456",
       "age": 33,
       "gender": "male",
-      "address": "Jl. Asia Afrika No. 789, Bandung"
+      "address": "Jl. Asia Afrika No. 789, Bandung",
+      "points": 0
     },
     {
       "id": 8,
@@ -367,7 +374,8 @@
       "phone": "+6288901234567",
       "age": 26,
       "gender": "female",
-      "address": "Jl. Ganesha No. 890, Bandung"
+      "address": "Jl. Ganesha No. 890, Bandung",
+      "points": 0
     },
     {
       "id": 9,
@@ -377,7 +385,8 @@
       "phone": "+6289012345678",
       "age": 30,
       "gender": "male",
-      "address": "Jl. Dipatiukur No. 901, Bandung"
+      "address": "Jl. Dipatiukur No. 901, Bandung",
+      "points": 0
     },
     {
       "id": 10,
@@ -387,7 +396,8 @@
       "phone": "+6280123456789",
       "age": 25,
       "gender": "female",
-      "address": "Jl. Cikutra No. 1234, Bandung"
+      "address": "Jl. Cikutra No. 1234, Bandung",
+      "points": 0
     },
     {
       "id": 11,
@@ -397,7 +407,8 @@
       "phone": "+6281234567890",
       "age": 32,
       "gender": "male",
-      "address": "Jl. Asia Afrika No. 234, Bandung"
+      "address": "Jl. Asia Afrika No. 234, Bandung",
+      "points": 0
     },
     {
       "id": 12,
@@ -407,7 +418,8 @@
       "phone": "+6282345678901",
       "age": 28,
       "gender": "female",
-      "address": "Jl. Cihampelas No. 345, Bandung"
+      "address": "Jl. Cihampelas No. 345, Bandung",
+      "points": 0
     },
     {
       "id": 13,
@@ -417,7 +429,8 @@
       "phone": "+6283456789012",
       "age": 34,
       "gender": "male",
-      "address": "Jl. Pajajaran No. 456, Bogor"
+      "address": "Jl. Pajajaran No. 456, Bogor",
+      "points": 0
     },
     {
       "id": 14,
@@ -427,7 +440,8 @@
       "phone": "+6284567890123",
       "age": 27,
       "gender": "female",
-      "address": "Jl. Siliwangi No. 567, Bandung"
+      "address": "Jl. Siliwangi No. 567, Bandung",
+      "points": 0
     },
     {
       "id": 15,
@@ -437,7 +451,8 @@
       "phone": "+6285678901234",
       "age": 29,
       "gender": "male",
-      "address": "Jl. Cipaganti No. 678, Bandung"
+      "address": "Jl. Cipaganti No. 678, Bandung",
+      "points": 0
     },
     {
       "id": 16,
@@ -447,7 +462,8 @@
       "phone": "+6286789012345",
       "age": 26,
       "gender": "female",
-      "address": "Jl. Cikapayang No. 789, Bandung"
+      "address": "Jl. Cikapayang No. 789, Bandung",
+      "points": 0
     },
     {
       "id": 17,
@@ -457,7 +473,8 @@
       "phone": "+6287890123456",
       "age": 31,
       "gender": "male",
-      "address": "Jl. Cikutra No. 890, Bandung"
+      "address": "Jl. Cikutra No. 890, Bandung",
+      "points": 0
     },
     {
       "id": 18,
@@ -467,7 +484,8 @@
       "phone": "+6288901234567",
       "age": 28,
       "gender": "female",
-      "address": "Jl. Cihampelas No. 901, Bandung"
+      "address": "Jl. Cihampelas No. 901, Bandung",
+      "points": 0
     },
     {
       "id": 19,
@@ -477,7 +495,8 @@
       "phone": "+6289012345678",
       "age": 33,
       "gender": "male",
-      "address": "Jl. Cipaganti No. 1234, Bandung"
+      "address": "Jl. Cipaganti No. 1234, Bandung",
+      "points": 0
     },
     {
       "id": 20,
@@ -487,7 +506,8 @@
       "phone": "+6280123456789",
       "age": 27,
       "gender": "female",
-      "address": "Jl. Cikapayang No. 234, Bandung"
+      "address": "Jl. Cikapayang No. 234, Bandung",
+      "points": 0
     }
   ]
 }

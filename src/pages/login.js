@@ -1,13 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../api";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    
+
+    const users = await api.get("/users");
+    const user = users.data.find((user) => user.email === email);
+
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/");
+    } else {
+      alert("User does not exist!");
+    }
   };
 
   return (
