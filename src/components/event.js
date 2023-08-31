@@ -1,13 +1,10 @@
-export default function Event({ onOpenRegister }) {
+export default function Event({ onOpenRegister, eventData }) {
   return (
     <div className="bg-black text-white rounded p-4">
-      <img
-        src="https://blog.hubspot.com/hs-fs/hubfs/about-us-page_20.webp?width=595&height=400&name=about-us-page_20.webp"
-        className="mb-4 w-full"
-      />
+      <img src={eventData.poster} className="mb-4 w-full" />
       <div className="flex flex-col items-center md:flex-row md:items-center justify-between">
         <h3 className="text-xl font-semibold mb-2 md:mb-0 md:mr-4 text-center md:text-left">
-          Example Event
+          {eventData.eventName}
         </h3>
         <button
           onClick={() => onOpenRegister()}
