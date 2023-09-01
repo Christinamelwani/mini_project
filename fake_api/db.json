@@ -496,7 +496,7 @@
       "age": 33,
       "gender": "male",
       "address": "Jl. Cipaganti No. 1234, Bandung",
-      "points": 0
+      "points": 10
     },
     {
       "id": 20,
@@ -507,7 +507,7 @@
       "age": 27,
       "gender": "female",
       "address": "Jl. Cikapayang No. 234, Bandung",
-      "points": 0
+      "points": 10
     }
   ],
   "referral_codes": [
@@ -550,6 +550,16 @@
       "code": "s4rn8",
       "user_id": 1,
       "id": 8
+    },
+    {
+      "code": "7uuwj",
+      "user_id": 20,
+      "id": 9
+    },
+    {
+      "code": "8w3wz",
+      "user_id": 19,
+      "id": 10
     }
   ]
 }

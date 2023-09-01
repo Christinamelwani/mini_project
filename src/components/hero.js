@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Hero({ user }) {
+export default function Hero() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
+
   function logout() {
+    setUser({});
     localStorage.removeItem("user");
   }
 
@@ -27,7 +38,7 @@ export default function Hero({ user }) {
             <li className="hidden md:block">Points: {user.points}</li>
             <Link to="/login">
               <li className="hidden md:block">
-                {user?.name ? (
+                {user.name ? (
                   <span onClick={() => logout()}>Logout</span>
                 ) : (
                   "Login"
@@ -40,7 +51,7 @@ export default function Hero({ user }) {
       <section className="flex flex-col justify-center items-center h-[50vh] md:h-[60vh]">
         <div className="bg-black p-4 text-center md:text-left md:w-1/2 md:ml-20 lg:ml-32">
           <h1 className="text-5xl md:text-6xl">
-            {user ? `Welcome, ${user.name}!` : "Welcome!"}
+            {user.name ? `Welcome, ${user.name}!` : "Welcome!"}
           </h1>
           <h2 className="text-3xl md:text-4xl">
             Your next best night ever is waiting
