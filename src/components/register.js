@@ -1,32 +1,84 @@
 import { useState } from "react";
+import api from "../api";
 
 function validateForm() {
   const nameValue = document.getElementById("name").value;
   const emailValue = document.getElementById("email").value;
   const nameError = document.getElementById("nameError");
   const emailError = document.getElementById("emailError");
-  
+
   let isValid = true;
-  
+
   if (!nameValue.trim()) {
     nameError.textContent = "Name is required!";
     isValid = false;
   } else {
     nameError.textContent = "";
   }
-  
+
   if (!emailValue.trim()) {
     emailError.textContent = "Email is required!";
     isValid = false;
   } else {
     emailError.textContent = "";
   }
-  
+
   return isValid;
 }
 
-export default function Register() {
+export default function Register({ activeEvent }) {
   const [mode, setMode] = useState("register");
+  const [code, setCode] = useState("BLANK");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  async function registerForEvent(e) {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    const referralCode = document.getElementById("referral_code").value;
+
+    if (referralCode) {
+      const referralCodes = await api.get("/referral_codes");
+
+      const referral = referralCodes.data.find(
+        (code) => code.code === referralCode
+      );
+
+      if (!referral) {
+        alert("Invalid referral code");
+        return;
+      }
+
+      if (referral.user_id === user.id) {
+        alert("Cannot use your own referral code!");
+        return;
+      }
+
+      // update 10 points for user with id that matches referral and 10 points for current user
+      const userWhoCreatedReferral = await api.get(
+        `/users/${referral.user_id}`
+      );
+      await api.patch(`/users/${referral.user_id}`, {
+        points: userWhoCreatedReferral.data.points + 10,
+      });
+
+      await api.patch(`/users/${user.id}`, {
+        points: user.points + 10,
+      });
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ ...user, points: user.points + 10 })
+      );
+    }
+
+    const newCode = (Math.random() + 1).toString(36).substring(7);
+    await api.post("/referral_codes", { code: newCode, user_id: user.id });
+    setCode(newCode);
+    setMode("code");
+  }
 
   if (mode === "register") {
     return (
@@ -34,7 +86,7 @@ export default function Register() {
         <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-black dark:border-black">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-orange-900 md:text-2xl dark:text-white">
-              Register for event
+              Register for {activeEvent.eventName}
             </h1>
             <form class="space-y-4 md:space-y-6" action="#">
               <div>
@@ -90,7 +142,7 @@ export default function Register() {
               </div>
 
               <button
-                onClick={(e) => { if (validateForm()) setMode("code"); else e.preventDefault(); }}
+                onClick={registerForEvent}
                 class="w-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 Register
@@ -104,9 +156,9 @@ export default function Register() {
     return (
       <div className="text-white gap-5 flex flex-col w-full justify-center items-center mt-[25%]">
         <h2 className="text-3xl">
-          Congratulations, you have registered for example event!
+          Congratulations, you have registered for {activeEvent.eventName}
         </h2>
-        <p className="text-2xl">Your referral code is 12345.</p>
+        <p className="text-2xl">Your referral code is {code}</p>
         <p className="text-2xl">Share it with your friends:</p>
         <div className="flex gap-10">
           <img
