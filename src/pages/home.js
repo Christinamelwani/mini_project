@@ -1,37 +1,23 @@
-import { useEffect, useState } from "react";
 import ModalComponent from "../components/modal";
-import Register from "../components/register";
+import Register from "../components/registerModal";
 import Hero from "../components/hero";
 import PopularEvents from "../components/popularEvents";
 import Footer from "../components/footer";
 import Filters from "../components/filters";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Referral from "../components/referralModal";
 
 export default function Home() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [activeEvent, setActiveEvent] = useState({});
-  const navigate = useNavigate();
-
-  const openRegisterModal = () => {
-    if (localStorage.getItem("user")) {
-      setModalIsOpen(true);
-    } else {
-      navigate("/login");
-    }
-  };
-  const closeRegisterModal = () => setModalIsOpen(false);
+  const modalContent = useSelector((state) => state.modal.content);
 
   return (
     <div>
       <Hero />
       <Filters />
-      <PopularEvents
-        openRegisterModal={openRegisterModal}
-        setActiveEvent={setActiveEvent}
-      />
+      <PopularEvents />
       <Footer />
-      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeRegisterModal}>
-        <Register activeEvent={activeEvent} />
+      <ModalComponent>
+        {modalContent === "register" ? <Register /> : <Referral />}
       </ModalComponent>
     </div>
   );

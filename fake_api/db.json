@@ -298,7 +298,7 @@
       "age": 28,
       "gender": "male",
       "address": "Jl. Sudirman No. 123, Jakarta",
-      "points": 40
+      "points": 60
     },
     {
       "id": 2,
@@ -309,7 +309,7 @@
       "age": 35,
       "gender": "female",
       "address": "Jl. Ahmad Yani No. 456, Bandung",
-      "points": 20
+      "points": 40
     },
     {
       "id": 3,
@@ -512,54 +512,24 @@
   ],
   "referral_codes": [
     {
-      "code": "0odft",
-      "user_id": 1,
+      "code": "s7p9ui",
+      "user_id": 2,
       "id": 1
     },
     {
-      "code": "fi9eh",
+      "code": "uz8ze",
       "user_id": 2,
       "id": 2
     },
     {
-      "code": "i2sdb",
-      "user_id": 2,
+      "code": "xpy56",
+      "user_id": 1,
       "id": 3
     },
     {
-      "code": "i3n3r",
-      "user_id": 2,
+      "code": "rc3ae",
+      "user_id": 1,
       "id": 4
-    },
-    {
-      "code": "enu1a",
-      "user_id": 2,
-      "id": 5
-    },
-    {
-      "code": "818fgh",
-      "user_id": 2,
-      "id": 6
-    },
-    {
-      "code": "u0wzu",
-      "user_id": 1,
-      "id": 7
-    },
-    {
-      "code": "s4rn8",
-      "user_id": 1,
-      "id": 8
-    },
-    {
-      "code": "7uuwj",
-      "user_id": 20,
-      "id": 9
-    },
-    {
-      "code": "8w3wz",
-      "user_id": 19,
-      "id": 10
     }
   ]
 }

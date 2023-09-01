@@ -1,4 +1,15 @@
-export default function Event({ onOpenRegister, eventData }) {
+import { useDispatch } from "react-redux";
+import { setModalIsOpen } from "../features/modal/modalSlice";
+import { setActiveEvent } from "../features/event/eventSlice";
+
+export default function Event({ eventData }) {
+  const dispatch = useDispatch();
+
+  function registerForEvent() {
+    dispatch(setModalIsOpen(true));
+    dispatch(setActiveEvent(eventData));
+  }
+
   return (
     <div className="bg-black text-white rounded p-4">
       <img src={eventData.poster} className="mb-4 w-full" />
@@ -7,7 +18,7 @@ export default function Event({ onOpenRegister, eventData }) {
           {eventData.eventName}
         </h3>
         <button
-          onClick={() => onOpenRegister()}
+          onClick={() => registerForEvent()}
           className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
         >
           Register
