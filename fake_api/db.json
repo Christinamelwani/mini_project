@@ -298,7 +298,7 @@
       "age": 28,
       "gender": "male",
       "address": "Jl. Sudirman No. 123, Jakarta",
-      "points": 60
+      "points": 70
     },
     {
       "id": 2,
@@ -309,7 +309,7 @@
       "age": 35,
       "gender": "female",
       "address": "Jl. Ahmad Yani No. 456, Bandung",
-      "points": 40
+      "points": 50
     },
     {
       "id": 3,
@@ -530,6 +530,141 @@
       "code": "rc3ae",
       "user_id": 1,
       "id": 4
+    },
+    {
+      "code": "3utq2h",
+      "user_id": 2,
+      "id": 5
+    },
+    {
+      "code": "312ny",
+      "user_id": 2,
+      "id": 6
+    },
+    {
+      "code": "q0g1eh",
+      "user_id": 1,
+      "id": 7
+    },
+    {
+      "code": "095xh",
+      "user_id": 1,
+      "id": 8
+    },
+    {
+      "code": "53h9j",
+      "user_id": 2,
+      "id": 9
+    },
+    {
+      "code": "gwydyg",
+      "user_id": 2,
+      "id": 10
+    },
+    {
+      "code": "vycrr",
+      "user_id": 2,
+      "id": 11
+    },
+    {
+      "code": "9hsa0i",
+      "user_id": 2,
+      "id": 12
+    },
+    {
+      "code": "k8yh",
+      "user_id": 2,
+      "id": 13
+    },
+    {
+      "code": "o1gof",
+      "user_id": 2,
+      "id": 14
+    },
+    {
+      "code": "3ftfz",
+      "user_id": 2,
+      "id": 15
+    },
+    {
+      "code": "iuvcu",
+      "user_id": 2,
+      "id": 16
+    },
+    {
+      "code": "zefom",
+      "user_id": 2,
+      "id": 17
+    },
+    {
+      "code": "nr8y7",
+      "user_id": 2,
+      "id": 18
+    },
+    {
+      "code": "rbj6z",
+      "user_id": 2,
+      "id": 19
+    },
+    {
+      "code": "swjrs",
+      "user_id": 2,
+      "id": 20
+    },
+    {
+      "code": "2s8nt",
+      "user_id": 2,
+      "id": 21
+    },
+    {
+      "code": "l7kwy",
+      "user_id": 2,
+      "id": 22
+    },
+    {
+      "code": "f8bnp",
+      "user_id": 2,
+      "id": 23
+    },
+    {
+      "code": "9mo2jl",
+      "user_id": 2,
+      "id": 24
+    },
+    {
+      "code": "9pvmf",
+      "user_id": 2,
+      "id": 25
+    },
+    {
+      "code": "y8nvk",
+      "user_id": 2,
+      "id": 26
+    },
+    {
+      "code": "n59li",
+      "user_id": 2,
+      "id": 27
+    },
+    {
+      "code": "q8m13k",
+      "user_id": 2,
+      "id": 28
+    },
+    {
+      "code": "puy4t",
+      "user_id": 2,
+      "id": 29
+    },
+    {
+      "code": "mmg83",
+      "user_id": 2,
+      "id": 30
+    },
+    {
+      "code": "ri3l7",
+      "user_id": 2,
+      "id": 31
     }
   ]
 }
