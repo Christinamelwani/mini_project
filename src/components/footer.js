@@ -25,7 +25,7 @@ export default function Footer() {
               </li>
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Blog
+                  Organizer Dashboard
                 </a>
               </li>
             </ul>
