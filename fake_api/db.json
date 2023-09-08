@@ -93,7 +93,7 @@
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg"
     },
     {
-      "eventName": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg",
+      "eventName": "ISYANA The 4th Album Showcase",
       "eventId": "6",
       "category": "music",
       "description": "The long awaited fourth studio album, self-titled ISYANA is an extension of the latest EP, a turning and burning point of her life. Despite the perplexing journey, she remains true, vulnerable, and honest in her stories. Isyana Sarasvati converse through classical rock, electronic tunes, and distortions of melodies. A roller coaster of emotion through an evolution of virtuous sounds. This intimate showcase of ISYANA, which integrates a mind-blowing stage act with stunning visuals and lighting, is an opportunity that cannot be missed. All of this will be brought closer to you in July and August.",
@@ -169,19 +169,6 @@
       "ticketPrice": "Rp. 3.500.000",
       "maxAttendees": "200",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813115254_64d861a67ab8f.jpg"
-    },
-    {
-      "eventName": "Sisterfillah Fest",
-      "eventId": "12",
-      "category": "festival",
-      "description": "Sisterfillah Fest adalah Event Komunitas Sisterfillah Bandung Timur yang acaranya terdiri dari penyerahan santunan untuk anak-anak yatim dan dhuafa, perlombaan anak-anak, Cooking Class, festival kajian yang akan di isi oleh beberapa pengisi diantaranya: Ustadz R Kusumananda Mega (Putra Alm Kang Ibing), Teh Ghaida Tsurayya, dan Teh Desi Indrawati dan juga akan di meriahkan oleh Special Perfomance dari Grup Nasyid Bandung Timur yaitu Hipma Voice.",
-      "date": "16-09-2023",
-      "time": "08:00 - 21:30 GMT+7",
-      "location": "Bandung, Jawa Barat",
-      "venue": "Halaman Masjid Al Hikmah Kaum Kidul, Jawa Barat",
-      "ticketPrice": "Free",
-      "maxAttendees": "1000",
-      "poster": "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/temporary/20230829/1693288635_w4mxUV.jpg?eyJpdiI6IlwvZFlzbGhEakRMaTJmY3lwM1o4QmVRPT0iLCJ2YWx1ZSI6ImJmY0c0bTU1NnlUaGhmMUxPMkRUTzlWZE5QeVNCNlp2aGNOMUN5RTNhb2w1SnRpZEQ2eUI3eUZBdzNlQlZpWlpBRlNNVExTVUFBZncwWEJlQ2pRd09qOWFhaFNQdkdkcVdnMHI4Uk5Cc3hsNFwvZW4rN2ZLVCtyOW5KOUdPRE4rWmJ0RG9WaU9LWk9kcUx1YWdEb0pXNnc9PSIsIm1hYyI6IjhiYTdhYWZjYzQzZjFhZDc3ZmZjOGE4YTVjMDg1YThiZWNjMTYxZjJkMDAwYzE4YzZjNmU4NjRkOWFkZjJlOTQifQ=="
     },
     {
       "eventName": "Death Resonance 2023",
