@@ -56,6 +56,11 @@ export default function YourOrder() {
   });
 
   const applyCoupon = () => {
+    if (events.ticketPrice === "Free") {
+      alert("You cannot apply a coupon to a free event.");
+      return;
+    }
+
     setIsApplyingCoupon(true);
 
     setTimeout(() => {
@@ -117,15 +122,21 @@ export default function YourOrder() {
         <button
           onClick={applyCoupon}
           className={`rounded-lg p-1 w-auto bg-orange-600 text-white font-semibold ${
-            isApplyingCoupon ? "opacity-50 cursor-not-allowed" : ""
+            isApplyingCoupon || events.ticketPrice === "Free"
+              ? "opacity-50 cursor-not-allowed"
+              : ""
           }`}
-          disabled={isApplyingCoupon}
+          disabled={isApplyingCoupon || events.ticketPrice === "Free"}
         >
           Pakai Kupon
         </button>
         <div className="p-2 flex justify-between items-center">
           <p className="p-2">Subtotal:</p>
-          <p className="p-2">{formatter.format(events.ticketPrice)}</p>
+          <p className="p-2">
+            {events.ticketPrice === "Free"
+              ? "FREE"
+              : formatter.format(events.ticketPrice)}
+          </p>
         </div>
         <hr />
         {appliedCoupon ? (
@@ -139,7 +150,11 @@ export default function YourOrder() {
         <hr />
         <div className="p-2 flex justify-between items-center">
           <p className="p-2">Total:</p>
-          <p className="p-2">{formatter.format(totalPrice)}</p>{" "}
+          <p className="p-2">
+            {events.ticketPrice === "Free"
+              ? "Rp. 0 (FREE)"
+              : formatter.format(totalPrice)}
+          </p>{" "}
           {/* Format totalPrice */}
         </div>
         <hr />
