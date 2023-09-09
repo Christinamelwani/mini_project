@@ -1,6 +1,7 @@
 {
   "events": [
     {
+      "id": 1,
       "eventName": "Neckdeep Live in Australia & Asia - JAKARTA",
       "eventId": "1",
       "category": "music",
@@ -10,14 +11,15 @@
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "Mahaka Square",
       "ticketPrice": {
-        "presale": "Rp 350.000",
-        "normal": "Rp 400.000",
-        "VIP": "Rp 450.000"
+        "presale": 350000,
+        "normal": 400000,
+        "VIP": 450000
       },
-      "maxAttendees": "1000",
+      "maxAttendees": 1000,
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714014753.png"
     },
     {
+      "id": 2,
       "eventName": "Neckdeep Live in Australia & Asia - SURABAYA",
       "eventId": "2",
       "category": "music",
@@ -27,14 +29,15 @@
       "location": "Surabaya, Jawa Timur",
       "venue": "Grand City Convention Hall, Jawa Timur",
       "ticketPrice": {
-        "presale": "Rp 350.000",
-        "normal": "Rp 400.000",
-        "VIP": "Rp 450.000"
+        "presale": 350000,
+        "normal": 400000,
+        "VIP": 450000
       },
       "maxAttendees": "1000",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714010120.png"
     },
     {
+      "id": 3,
       "eventName": "JOYLAND JAKARTA 2023",
       "eventId": "3",
       "category": "music",
@@ -48,14 +51,15 @@
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "GBK Sports Complex, Jakarta Pusat",
       "ticketPrice": {
-        "presale 1": "Rp 488.000",
-        "presale 2": "Rp. 688.000",
-        "presale 3": "Rp. 888.000"
+        "presale 1": 488000,
+        "presale 2": 688000,
+        "presale 3": 888000
       },
       "maxAttendees": "1000",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230604123900.jpg"
     },
     {
+      "id": 4,
       "eventName": "PESTAPORA 2023",
       "eventId": "4",
       "category": "music",
@@ -69,14 +73,15 @@
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "Gambir Expo, Kemayoran Jakarta",
       "ticketPrice": {
-        "presale 1": "Rp 450.000",
-        "presale 2": "Rp. 550.000",
-        "presale 3": "Rp. 600.000"
+        "presale 1": 450000,
+        "presale 2": 550000,
+        "presale 3": 600000
       },
       "maxAttendees": "1000",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230814064640.jpg"
     },
     {
+      "id": 5,
       "eventName": "Mahalini Fabula 2.0 Live in Concert",
       "eventId": "5",
       "category": "music",
@@ -86,26 +91,28 @@
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "Basket Hall Senayan - Jakarta Pusat",
       "ticketPrice": {
-        "regular": "Rp 450.000",
-        "VIP": "Rp. 850.000"
+        "regular": 450000,
+        "VIP": 850000
       },
       "maxAttendees": "1000",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg"
     },
     {
-      "eventName": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg",
+      "id": 6,
+      "eventName": "Isyana 4th Album Showcase Live Tour 2023",
       "eventId": "6",
       "category": "music",
       "description": "The long awaited fourth studio album, self-titled ISYANA is an extension of the latest EP, a turning and burning point of her life. Despite the perplexing journey, she remains true, vulnerable, and honest in her stories. Isyana Sarasvati converse through classical rock, electronic tunes, and distortions of melodies. A roller coaster of emotion through an evolution of virtuous sounds. This intimate showcase of ISYANA, which integrates a mind-blowing stage act with stunning visuals and lighting, is an opportunity that cannot be missed. All of this will be brought closer to you in July and August.",
-      "date": "30 09 2023",
+      "date": "30 September 2023",
       "time": "17:00 - 21:00 GMT+7",
       "location": "Makassar, Sulawesi Selatan",
       "venue": "Aula Politeknik Pariwisata Makassar, Sulawesi Selatan",
-      "ticketPrice": "",
-      "maxAttendees": "",
+      "ticketPrice": 550000,
+      "maxAttendees": "1000",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813195415_64d8d27752310.jpg"
     },
     {
+      "id": 7,
       "eventName": "Power of Words 2023 - Public Speaking Workshop",
       "eventId": "7",
       "category": "workshop",
@@ -114,11 +121,12 @@
       "time": "18:00 - 21:00 GMT+7",
       "location": "Jakarta, DKI Jakarta",
       "venue": "Wall Street Kelapa Gading",
-      "ticketPrice": "Rp. 250.000",
+      "ticketPrice": 250000,
       "maxAttendees": "50",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230728133300_64c3611caa148.jpg"
     },
     {
+      "id": 8,
       "eventName": "2023 ASIA FAN MEETING IN JAKARTA: KIMBUM (Between U and Me)",
       "eventId": "8",
       "category": "other",
@@ -127,11 +135,12 @@
       "time": "19:00 - 22:00 GMT+7",
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "Grand Ballroom - Kempinski Hotel, DKI Jakarta",
-      "ticketPrice": "Rp. 500.000",
+      "ticketPrice": 500000,
       "maxAttendees": "200",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230823110754.jpg"
     },
     {
+      "id": 9,
       "eventName": "Marketeers Hangout 2023",
       "eventId": "9",
       "category": "workshop",
@@ -140,11 +149,12 @@
       "time": "09:30 - 17:00 GMT+7",
       "location": "Jakarta Selatan, DKI Jakarta",
       "venue": "Ciputra Artpreneur Theater, DKI Jakarta",
-      "ticketPrice": "Rp. 550.000",
+      "ticketPrice": 550000,
       "maxAttendees": "300",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230815164553_64db4951e22a7.jpg"
     },
     {
+      "id": 10,
       "eventName": "Teknis Jualan Foto dan Footage dari Approved Sampai Sold di Shutterstock",
       "eventId": "10",
       "category": "workshop",
@@ -153,11 +163,12 @@
       "time": "19:00 - 21:00 GMT+7",
       "location": "Online Event",
       "venue": "Zoom Meeting",
-      "ticketPrice": "Rp. 75.000",
+      "ticketPrice": 75000,
       "maxAttendees": "250",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230810223038_64d5029ebcb27.jpg"
     },
     {
+      "id": 11,
       "eventName": "Becoming a Behavioural Detective: Understanding and Supporting Complex Behaviour",
       "eventId": "11",
       "category": "workshop",
@@ -166,11 +177,12 @@
       "time": "08:30 - 16:30 GMT+7",
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "Hotel Sofyan, Cikini, Jakarta Pusat",
-      "ticketPrice": "Rp. 3.500.000",
+      "ticketPrice": 3500000,
       "maxAttendees": "200",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813115254_64d861a67ab8f.jpg"
     },
     {
+      "id": 12,
       "eventName": "Sisterfillah Fest",
       "eventId": "12",
       "category": "festival",
@@ -184,6 +196,7 @@
       "poster": "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/temporary/20230829/1693288635_w4mxUV.jpg?eyJpdiI6IlwvZFlzbGhEakRMaTJmY3lwM1o4QmVRPT0iLCJ2YWx1ZSI6ImJmY0c0bTU1NnlUaGhmMUxPMkRUTzlWZE5QeVNCNlp2aGNOMUN5RTNhb2w1SnRpZEQ2eUI3eUZBdzNlQlZpWlpBRlNNVExTVUFBZncwWEJlQ2pRd09qOWFhaFNQdkdkcVdnMHI4Uk5Cc3hsNFwvZW4rN2ZLVCtyOW5KOUdPRE4rWmJ0RG9WaU9LWk9kcUx1YWdEb0pXNnc9PSIsIm1hYyI6IjhiYTdhYWZjYzQzZjFhZDc3ZmZjOGE4YTVjMDg1YThiZWNjMTYxZjJkMDAwYzE4YzZjNmU4NjRkOWFkZjJlOTQifQ=="
     },
     {
+      "id": 13,
       "eventName": "Death Resonance 2023",
       "eventId": "13",
       "category": "music",
@@ -192,11 +205,12 @@
       "time": "16:00 - 22:30 GMT+7",
       "location": "Bandung, Jawa Barat",
       "venue": "IFI Bandung, Jawa Barat",
-      "ticketPrice": "Rp. 75.000",
+      "ticketPrice": 75000,
       "maxAttendees": "500",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230807160812_64d0b47c608e3.jpg"
     },
     {
+      "id": 14,
       "eventName": "LIGA KOPI BALI 2023/24 (ILAC & ICTC)",
       "eventId": "14",
       "category": "kompetisi",
@@ -210,6 +224,7 @@
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230809072821_64d2dda5b3368.jpg"
     },
     {
+      "id": 15,
       "eventName": "LATTE ART JUDGE WORKSHOP - LIGA KOPI BALI",
       "eventId": "15",
       "category": "workshop",
@@ -218,11 +233,12 @@
       "time": "10:00 - 17:00 WITA",
       "location": "Nusa Dua, Bali",
       "venue": "Bali Nusa Dua Convention Center, Bali",
-      "ticketPrice": "Rp. 350.000",
+      "ticketPrice": 350000,
       "maxAttendees": "400",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827221357_64eb683516a77.jpg"
     },
     {
+      "id": 16,
       "eventName": "Indonesia Marketing Festival 2023 - BALI NUSRA",
       "eventId": "16",
       "category": "festival",
@@ -231,11 +247,12 @@
       "time": "09:00 - 17:00 WITA",
       "location": "Kabupaten Badung, Bali",
       "venue": "HARRIS Hotel & Residences Sunset Road - Bali, Bali",
-      "ticketPrice": "Rp. 750.000",
+      "ticketPrice": 750000,
       "maxAttendees": "500",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714154605_64b10b4d9c9f7.jpg"
     },
     {
+      "id": 17,
       "eventName": "EXCLUSIVE Webinar Rahasia AI Tingkatkan Profit Bisnis 10X",
       "eventId": "17",
       "category": "workshop",
@@ -249,6 +266,7 @@
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827200939_64eb4b13d6646.jpg"
     },
     {
+      "id": 18,
       "eventName": "Premium Webinar Strategi Kaya Dari Affiliate Marketing dengan Funnel",
       "eventId": "18",
       "category": "workshop",
@@ -262,6 +280,7 @@
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827205906_64eb56aaed41f.jpg"
     },
     {
+      "id": 19,
       "eventName": "Ilmu Hitam (Stand Up Comedy Special Show by Arie Kriting)",
       "eventId": "19",
       "category": "pertunjukan",
@@ -270,11 +289,12 @@
       "time": "19:30 - 21:30 WIB",
       "location": "Jakarta Pusat, DKI Jakarta",
       "venue": "Graha Bhakti Budaya - TIM, DKI Jakarta",
-      "ticketPrice": "Rp. 250.000",
+      "ticketPrice": 250000,
       "maxAttendees": "200",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230725112031_64bf4d8f53377.jpg"
     },
     {
+      "id": 20,
       "eventName": "CERITA SEBELKU oleh Raditya Dika - DEPOK",
       "eventId": "20",
       "category": "pertunjukan",
@@ -283,7 +303,7 @@
       "time": "13:30 - 21:30 WIB",
       "location": "Depok, Jawa Barat",
       "venue": "MAKARA ART CENTER - UI, DEPOK, Jawa Barat",
-      "ticketPrice": "Rp. 250.000",
+      "ticketPrice": 250000,
       "maxAttendees": "200",
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230726080642.jpeg"
     }
@@ -665,6 +685,20 @@
       "code": "ri3l7",
       "user_id": 2,
       "id": 31
+    }
+  ],
+  "coupons": [
+    {
+      "code": "SUMMER20",
+      "discount": 20
+    },
+    {
+      "code": "HOLIDAY15",
+      "discount": 15
+    },
+    {
+      "code": "BLACKFRIDAY10",
+      "discount": 10
     }
   ]
 }

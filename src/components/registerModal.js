@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setModalContent } from "../features/modal/modalSlice";
 import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 function validateForm() {
   const nameValue = document.getElementById("name").value;
@@ -30,6 +31,7 @@ function validateForm() {
 export default function Register() {
   const activeEvent = useSelector((state) => state.event.activeEvent);
   const user = useSelector((state) => state.user.user);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -81,6 +83,7 @@ export default function Register() {
     }
 
     dispatch(setModalContent("referral"));
+    navigate(`/checkout/${activeEvent.eventId}`);
   }
 
   return (
