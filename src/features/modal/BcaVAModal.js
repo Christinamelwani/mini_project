@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
+export default function BcaVAModal({
+  isOpen,
+  onClose,
+  selectedBank,
+  totalPrice,
+}) {
   const [accordionOpen, setAccordionOpen] = useState(null);
+  const [remainingTime, setRemainingTime] = useState(86400);
+  const [formattedTime, setFormattedTime] = useState("24:00:00");
+
   const copyToClipboard = () => {
     const virtualAccountInput = document.getElementById("virtualAccountInput");
 
@@ -17,6 +25,12 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
       }
     }
   };
+
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  });
 
   const toggleAccordion = (index) => {
     if (index === accordionOpen) {
@@ -77,11 +91,18 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
     },
   ];
 
-  const [remainingTime, setRemainingTime] = useState(86400);
   useEffect(() => {
     const interval = setInterval(() => {
       if (remainingTime > 0) {
+        const hours = Math.floor(remainingTime / 3600);
+        const minutes = Math.floor((remainingTime % 3600) / 60);
+        const seconds = remainingTime % 60;
+
+        const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
         setRemainingTime(remainingTime - 1);
+        setFormattedTime(formattedTime);
       } else {
         clearInterval(interval);
       }
@@ -95,17 +116,18 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
       <div className="bg-white p-16 rounded w-[60%] h-[95%]">
-        <div className=" flex flex-col justify-center items-center top-0">
-          <button className="" onClick={onClose}>
+        <div>
+          <button
+            className=" p-3 border-black border rounded-full text-bold text-orange-600"
+            onClick={onClose}
+          >
             X
           </button>
+        </div>
+        <div className=" flex flex-col justify-center items-center top-0">
           <p className="text-lg font-semibold">Selesaikan Pembayaran Dalam</p>
           <p>
-            {`${Math.floor(remainingTime / 60)
-              .toString()
-              .padStart(2, "0")}:${(remainingTime % 60)
-              .toString()
-              .padStart(2, "0")}`}
+            <p>{formattedTime}</p>
           </p>
         </div>
         <div className="flex flex-col border rounded p-1 justify-between border-b-2">
@@ -142,6 +164,12 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
           <button className="px-5 py-2 my-5 bg-white border-orange-600 border p-3 text-orange-600 font-semibold rounded hover:bg-gray-100 hover:shadow-md">
             Cek Status Pembayaran
           </button>
+          <p className="p-2">Total:</p>
+          <p className="p-2">
+            {totalPrice === "Free"
+              ? "Rp. 0 (FREE)"
+              : formatter.format(totalPrice)}
+          </p>{" "}
         </div>
 
         <div>

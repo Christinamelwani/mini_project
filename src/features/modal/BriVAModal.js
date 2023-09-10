@@ -94,7 +94,7 @@ export default function BriVAModal({ isOpen, onClose, selectedBank }) {
             </h1>
             <img
               className="w-12 mt-1"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/68/BANK_BRI_logo.svg"
               alt=""
             />
           </div>

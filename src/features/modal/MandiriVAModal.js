@@ -94,7 +94,7 @@ export default function MandiriVAModal({ isOpen, onClose, selectedBank }) {
             </h1>
             <img
               className="w-12 mt-1"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg"
+              src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg"
               alt=""
             />
           </div>
