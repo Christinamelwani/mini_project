@@ -294,7 +294,7 @@
       "age": 28,
       "gender": "male",
       "address": "Jl. Sudirman No. 123, Jakarta",
-      "points": 90
+      "points": 180
     },
     {
       "id": 2,
@@ -305,7 +305,7 @@
       "age": 35,
       "gender": "female",
       "address": "Jl. Ahmad Yani No. 456, Bandung",
-      "points": 60
+      "points": 110
     },
     {
       "id": 3,
@@ -671,19 +671,69 @@
       "code": "dhds9i",
       "user_id": 1,
       "id": 33
+    },
+    {
+      "code": "l3sqe",
+      "user_id": 1,
+      "id": 34
+    },
+    {
+      "code": "uy67q",
+      "user_id": 1,
+      "id": 35
+    },
+    {
+      "code": "ru0cy",
+      "user_id": 1,
+      "id": 36
+    },
+    {
+      "code": "d8r5k",
+      "user_id": 1,
+      "id": 37
+    },
+    {
+      "code": "rrurl",
+      "user_id": 1,
+      "id": 38
+    },
+    {
+      "code": "7tyctj",
+      "user_id": 1,
+      "id": 39
+    },
+    {
+      "code": "2wo9",
+      "user_id": 1,
+      "id": 40
+    },
+    {
+      "code": "1ttng",
+      "user_id": 1,
+      "id": 41
+    },
+    {
+      "code": "sdrj3",
+      "user_id": 1,
+      "id": 42
+    },
+    {
+      "code": "gjbhyk",
+      "user_id": 1,
+      "id": 43
     }
   ],
   "coupons": [
     {
-      "code": "SUMMER20",
+      "code": "FLASHSALE9.9",
       "discount": 20
     },
     {
-      "code": "HOLIDAY15",
+      "code": "NEWUSER",
       "discount": 15
     },
     {
-      "code": "BLACKFRIDAY10",
+      "code": "SEPTEMBERCERIA",
       "discount": 10
     }
   ],
