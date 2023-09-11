@@ -12,7 +12,8 @@
       "venue": "Mahaka Square",
       "ticketPrice": 650000,
       "maxAttendees": 1000,
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714014753.png"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714014753.png",
+      "organizer_id": 1
     },
     {
       "id": 2,
@@ -26,7 +27,8 @@
       "venue": "Zoom Meeting",
       "ticketPrice": "Free",
       "maxAttendees": "250",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827205906_64eb56aaed41f.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827205906_64eb56aaed41f.jpg",
+      "organizer_id": 2
     },
     {
       "id": 3,
@@ -40,7 +42,8 @@
       "venue": "GBK Sports Complex, Jakarta Pusat",
       "ticketPrice": 880000,
       "maxAttendees": "1000",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230604123900.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230604123900.jpg",
+      "organizer_id": 1
     },
     {
       "id": 4,
@@ -58,7 +61,8 @@
       "venue": "Gambir Expo, Kemayoran Jakarta",
       "ticketPrice": 600000,
       "maxAttendees": "1000",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230814064640.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230814064640.jpg",
+      "organizer_id": 2
     },
     {
       "id": 5,
@@ -72,9 +76,11 @@
       "venue": "Basket Hall Senayan - Jakarta Pusat",
       "ticketPrice": 850000,
       "maxAttendees": "1000",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg",
+      "organizer_id": 1
     },
-    {
+      {
+      "id": 6,
       "eventName": "ISYANA The 4th Album Showcase",
       "eventId": "6",
       "category": "music",
@@ -85,7 +91,8 @@
       "venue": "Aula Politeknik Pariwisata Makassar, Sulawesi Selatan",
       "ticketPrice": 550000,
       "maxAttendees": "1000",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813195415_64d8d27752310.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813195415_64d8d27752310.jpg",
+      "organizer_id": 2
     },
     {
       "id": 7,
@@ -99,7 +106,8 @@
       "venue": "Wall Street Kelapa Gading",
       "ticketPrice": 250000,
       "maxAttendees": "50",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230728133300_64c3611caa148.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230728133300_64c3611caa148.jpg",
+      "organizer_id": 1
     },
     {
       "id": 8,
@@ -113,7 +121,8 @@
       "venue": "Grand Ballroom - Kempinski Hotel, DKI Jakarta",
       "ticketPrice": 500000,
       "maxAttendees": "200",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230823110754.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230823110754.jpg",
+      "organizer_id": 2
     },
     {
       "id": 9,
@@ -127,7 +136,8 @@
       "venue": "Ciputra Artpreneur Theater, DKI Jakarta",
       "ticketPrice": 550000,
       "maxAttendees": "300",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230815164553_64db4951e22a7.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230815164553_64db4951e22a7.jpg",
+      "organizer_id": 1
     },
     {
       "id": 10,
@@ -141,7 +151,8 @@
       "venue": "Zoom Meeting",
       "ticketPrice": 75000,
       "maxAttendees": "250",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230810223038_64d5029ebcb27.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230810223038_64d5029ebcb27.jpg",
+      "organizer_id": 2
     },
     {
       "id": 11,
@@ -155,7 +166,8 @@
       "venue": "Hotel Sofyan, Cikini, Jakarta Pusat",
       "ticketPrice": 3500000,
       "maxAttendees": "200",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813115254_64d861a67ab8f.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230813115254_64d861a67ab8f.jpg",
+      "organizer_id": 1
     },
     {
       "id": 12,
@@ -169,7 +181,8 @@
       "venue": "Halaman Masjid Al Hikmah Kaum Kidul, Jawa Barat",
       "ticketPrice": "Free",
       "maxAttendees": "1000",
-      "poster": "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/temporary/20230829/1693288635_w4mxUV.jpg?eyJpdiI6IlwvZFlzbGhEakRMaTJmY3lwM1o4QmVRPT0iLCJ2YWx1ZSI6ImJmY0c0bTU1NnlUaGhmMUxPMkRUTzlWZE5QeVNCNlp2aGNOMUN5RTNhb2w1SnRpZEQ2eUI3eUZBdzNlQlZpWlpBRlNNVExTVUFBZncwWEJlQ2pRd09qOWFhaFNQdkdkcVdnMHI4Uk5Cc3hsNFwvZW4rN2ZLVCtyOW5KOUdPRE4rWmJ0RG9WaU9LWk9kcUx1YWdEb0pXNnc9PSIsIm1hYyI6IjhiYTdhYWZjYzQzZjFhZDc3ZmZjOGE4YTVjMDg1YThiZWNjMTYxZjJkMDAwYzE4YzZjNmU4NjRkOWFkZjJlOTQifQ=="
+      "poster": "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/temporary/20230829/1693288635_w4mxUV.jpg?eyJpdiI6IlwvZFlzbGhEakRMaTJmY3lwM1o4QmVRPT0iLCJ2YWx1ZSI6ImJmY0c0bTU1NnlUaGhmMUxPMkRUTzlWZE5QeVNCNlp2aGNOMUN5RTNhb2w1SnRpZEQ2eUI3eUZBdzNlQlZpWlpBRlNNVExTVUFBZncwWEJlQ2pRd09qOWFhaFNQdkdkcVdnMHI4Uk5Cc3hsNFwvZW4rN2ZLVCtyOW5KOUdPRE4rWmJ0RG9WaU9LWk9kcUx1YWdEb0pXNnc9PSIsIm1hYyI6IjhiYTdhYWZjYzQzZjFhZDc3ZmZjOGE4YTVjMDg1YThiZWNjMTYxZjJkMDAwYzE4YzZjNmU4NjRkOWFkZjJlOTQifQ==",
+      "organizer_id": 2
     },
     {
       "id": 13,
@@ -183,7 +196,8 @@
       "venue": "IFI Bandung, Jawa Barat",
       "ticketPrice": 75000,
       "maxAttendees": "500",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230807160812_64d0b47c608e3.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230807160812_64d0b47c608e3.jpg",
+      "organizer_id": 1
     },
     {
       "id": 14,
@@ -197,7 +211,8 @@
       "venue": "Bali Nusa Dua Convention Center, Bali",
       "ticketPrice": 50000,
       "maxAttendees": "200",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230809072821_64d2dda5b3368.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230809072821_64d2dda5b3368.jpg",
+      "organizer_id": 2
     },
     {
       "id": 15,
@@ -211,7 +226,8 @@
       "venue": "Bali Nusa Dua Convention Center, Bali",
       "ticketPrice": 350000,
       "maxAttendees": "400",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827221357_64eb683516a77.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827221357_64eb683516a77.jpg",
+      "organizer_id": 1
     },
     {
       "id": 16,
@@ -225,7 +241,8 @@
       "venue": "HARRIS Hotel & Residences Sunset Road - Bali, Bali",
       "ticketPrice": 750000,
       "maxAttendees": "500",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714154605_64b10b4d9c9f7.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714154605_64b10b4d9c9f7.jpg",
+      "organizer_id": 2
     },
     {
       "id": 17,
@@ -239,7 +256,8 @@
       "venue": "Zoom Meeting",
       "ticketPrice": "Free",
       "maxAttendees": "250",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827200939_64eb4b13d6646.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230827200939_64eb4b13d6646.jpg",
+      "organizer_id": 1
     },
     {
       "id": 18,
@@ -253,7 +271,8 @@
       "venue": "Grand City Convention Hall, Jawa Timur",
       "ticketPrice": 450000,
       "maxAttendees": "1000",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714010120.png"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230714010120.png",
+      "organizer_id": 2
     },
     {
       "id": 19,
@@ -267,7 +286,8 @@
       "venue": "Graha Bhakti Budaya - TIM, DKI Jakarta",
       "ticketPrice": 250000,
       "maxAttendees": "200",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230725112031_64bf4d8f53377.jpg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230725112031_64bf4d8f53377.jpg",
+      "organizer_id": 1
     },
     {
       "id": 20,
@@ -281,7 +301,8 @@
       "venue": "MAKARA ART CENTER - UI, DEPOK, Jawa Barat",
       "ticketPrice": 250000,
       "maxAttendees": "200",
-      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230726080642.jpeg"
+      "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230726080642.jpeg",
+      "organizer_id": 2
     }
   ],
   "users": [
@@ -860,11 +881,13 @@
   "organizer": [
     {
       "id": 1,
-      "org_name": "A24"
+      "name": "A24",
+      "email": "admin@a24.com"
     },
     {
       "id": 2,
-      "org_name": "Bigg Topz LLC"
+      "name": "Broadway",
+      "email": "admin@broadway.com"
     }
   ]
 }
