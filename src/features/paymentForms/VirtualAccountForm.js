@@ -19,8 +19,7 @@ function VirtualAccountForm() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1>Virtual Account</h1>
+    <div className="">
       <div className="grid grid-cols-4 justify-center items-center gap-4 my-2 mx-5">
         <div className="w-16 p-2 border place-items-center rounded-md hover:shadow-md hover:scale-95 cursor-pointer">
           <img
@@ -62,7 +61,6 @@ function VirtualAccountForm() {
         </div>
       </div>
 
-      {/* Conditional rendering of modals */}
       {isModalOpen && selectedBank === "BCA" && (
         <BcaVAModal
           isOpen={isModalOpen}

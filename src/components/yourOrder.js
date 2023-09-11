@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import api from "../api";
 import { useParams } from "react-router-dom";
+import { setTotalPrice } from "../features/paymentForms/paymentSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function YourOrder() {
   const [events, setEvents] = useState({});
@@ -10,12 +12,13 @@ export default function YourOrder() {
   const [discountedPrice, setDiscountedPrice] = useState(null);
   const [coupons, setCoupons] = useState([]);
   const { id } = useParams();
-  const [totalPrice, setTotalPrice] = useState(null);
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
-  const [ticketQuantity, setTicketQuantity] = useState(1); // Initialize with 1 ticket
+  const [ticketQuantity, setTicketQuantity] = useState(1);
   const [ticketPrice, setTicketPrice] = useState(null);
-  const [taxPercentage, setTaxPercentage] = useState(11);
+  const [taxPercentage] = useState(11);
   const adminFee = 1000;
+  const dispatch = useDispatch();
+  const totalPrice = useSelector((state) => state.transaction.totalPrice);
 
   useEffect(() => {
     api
@@ -58,14 +61,11 @@ export default function YourOrder() {
       if (selectedCoupon) {
         const discountPercentage = selectedCoupon.discount;
         const discountAmount = (ticketPrice * discountPercentage) / 100;
-
         setAppliedCoupon({
           code: couponCode,
           discount: discountPercentage,
           discountAmount: discountAmount,
         });
-
-        // Calculate the discounted price for one ticket
         const discountedPriceForOneTicket = ticketPrice - discountAmount;
         setDiscountedPrice(discountedPriceForOneTicket);
       } else {
@@ -75,7 +75,7 @@ export default function YourOrder() {
         console.log("Coupon not found");
       }
       setIsApplyingCoupon(false);
-    }, 1500); // Simulated delay of 1500ms
+    }, 1500);
   };
 
   useEffect(() => {
@@ -83,14 +83,14 @@ export default function YourOrder() {
       const subtotal = discountedPrice * ticketQuantity;
       const taxAmount = (subtotal * taxPercentage) / 100;
       const total = subtotal + taxAmount + adminFee;
-      setTotalPrice(total);
+      dispatch(setTotalPrice(total));
     } else {
       const subtotal = ticketPrice * ticketQuantity;
       const taxAmount = (subtotal * taxPercentage) / 100;
       const total = subtotal + taxAmount + adminFee;
-      setTotalPrice(total);
+      dispatch(setTotalPrice(total));
     }
-  }, [discountedPrice, ticketPrice, ticketQuantity, taxPercentage]);
+  }, [discountedPrice, ticketPrice, ticketQuantity, taxPercentage, dispatch]);
 
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -134,35 +134,35 @@ export default function YourOrder() {
       </div>
       <div className="justify-between flex flex-col ">
         <div className="mb-5">
-          <label htmlFor="ticketQuantity">Quantity of Tickets</label>
+          <label htmlFor="ticketQuantity">Jumlah Tiket</label>
           <div className="flex items-center">
             <button
-              className="border border-black rounded-l px-2 text-orange-600 text-lg font-bold"
+              className="border border-black mx-2 px-1 py-1 w-12 rounded-l text-orange-600 text-lg font-bold"
               onClick={decrementQuantity}
             >
               {"<"}
             </button>
             <input
-              className="border border-black rounded-r mx-2 px-4 py-1 w-12"
+              className="border border-black mx-2 px-4 py-1 w-12"
               id="ticketQuantity"
               type="text"
               value={ticketQuantity}
               readOnly
             />
             <button
-              className="border border-black rounded-r px-2 text-orange-600 text-lg font-bold"
+              className="border border-black mx-2 px-1 py-1 w-12 rounded-r text-orange-600 text-lg font-bold"
               onClick={incrementQuantity}
             >
               {">"}
             </button>
           </div>
         </div>
-        <label htmlFor="couponCode">Coupon</label>
         <input
           className="mb-5 border border-black rounded-xl py-2"
           id="couponCode"
           type="text"
           value={couponCode}
+          placeholder="Kode Kupon"
           onChange={(e) => setCouponCode(e.target.value)}
         />
         <button
@@ -174,7 +174,7 @@ export default function YourOrder() {
           }`}
           disabled={isApplyingCoupon || events.ticketPrice === "Free"}
         >
-          Apply Coupon
+          Pakai Coupon
         </button>
         <div className="p-2 flex justify-between items-center">
           <p className="p-2">Subtotal:</p>
@@ -187,7 +187,7 @@ export default function YourOrder() {
         <hr />
         {appliedCoupon ? (
           <div className="p-2 flex justify-between items-center">
-            <p className="p-2">Discount ({appliedCoupon.code}):</p>
+            <p className="p-2">Diskon ({appliedCoupon.code}):</p>
             <p className="p-2">
               - {formatter.format(appliedCoupon.discountAmount)}
             </p>
@@ -195,14 +195,14 @@ export default function YourOrder() {
         ) : null}
         <hr />
         <div className="p-2 flex justify-between items-center">
-          <p className="p-2">Tax ({taxPercentage}%):</p>
+          <p className="p-2">Pajak ({taxPercentage}%):</p>
           <p className="p-2">
             {formatter.format((totalPrice - adminFee) * (taxPercentage / 100))}
           </p>
         </div>
         <hr />
         <div className="p-2 flex justify-between items-center">
-          <p className="p-2">Admin Fee:</p>
+          <p className="p-2">Biaya Admin:</p>
           <p className="p-2">{formatter.format(adminFee)}</p>
         </div>
         <hr />

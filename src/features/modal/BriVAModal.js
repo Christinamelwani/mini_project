@@ -1,22 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import PaymentSuccessModal from "./paymentSuccessModal";
 
-export default function BriVAModal({ isOpen, onClose, selectedBank }) {
+export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
   const [accordionOpen, setAccordionOpen] = useState(null);
+  const [remainingTime, setRemainingTime] = useState(86400);
+  const [formattedTime, setFormattedTime] = useState("24:00:00");
+  const totalPrice = useSelector((state) => state.transaction.totalPrice);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const handleCekStatusClick = () => {
+    setShowSuccessModal(true);
+  };
+
   const copyToClipboard = () => {
     const virtualAccountInput = document.getElementById("virtualAccountInput");
 
     if (virtualAccountInput) {
       virtualAccountInput.select();
-      document.execCommand("copy");
-      virtualAccountInput.setSelectionRange(0, 0); // Deselect the text
 
       try {
-        navigator.clipboard.writeText(virtualAccountInput.value);
+        document.execCommand("copy");
+        alert("Nomor Virtual Account berhasil disalin!");
       } catch (error) {
         console.error("Failed to copy to clipboard:", error);
+        try {
+          navigator.clipboard
+            .writeText(virtualAccountInput.value)
+            .then(() => {
+              alert("Nomor Virtual Account berhasil disalin!");
+            })
+            .catch((err) => {
+              console.error(
+                "Failed to copy to clipboard using Clipboard API:",
+                err
+              );
+              alert("Gagal menyalin Nomor Virtual Account.");
+            });
+        } catch (clipboardError) {
+          console.error("Clipboard API not supported:", clipboardError);
+          alert("Gagal menyalin Nomor Virtual Account.");
+        }
       }
     }
   };
+
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  });
 
   const toggleAccordion = (index) => {
     if (index === accordionOpen) {
@@ -28,64 +61,141 @@ export default function BriVAModal({ isOpen, onClose, selectedBank }) {
 
   const accordionItems = [
     {
-      title: "ATM BCA",
-      content: `
-      1. Masukkan Kartu ATM & PIN \n
-      2. Pilih Menu Transaksi Lainnya > Transfer > ke Rekening BCA Virtual Account \n
-      3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di akun anda \n
-      4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai \n
-      5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan \n
-      6. Ikuti transaksi untuk menyelesaikan transaksi \n
-      7. Simpan struk transaksi sebagai bukti pembayaran \n
-    `,
+      title: "ATM BRI",
+      content: (
+        <div>
+          <ol>
+            <li>1. Masukkan Kartu ATM & PIN </li>
+            <li>
+              2. Pilih Menu Transaksi Lainnya &gt; Transfer &gt; ke Rekening BCA
+              Virtual Account{" "}
+            </li>
+            <li>
+              3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di
+              akun anda
+            </li>
+            <li>
+              4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai{" "}
+            </li>
+            <li>5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan </li>
+            <li>6. Ikuti transaksi untuk menyelesaikan transaksi </li>
+            <li>7. Simpan struk transaksi sebagai bukti pembayaran </li>
+          </ol>
+        </div>
+      ),
     },
     {
-      title: "m-BCA (BCA Mobile)",
-      content: `
-      1. Masukkan Kartu ATM & PIN \n
-      2. Pilih Menu Transaksi Lainnya > Transfer > ke Rekening BCA Virtual Account \n
-      3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di akun anda \n
-      4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai \n
-      5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan \n
-      6. Ikuti transaksi untuk menyelesaikan transaksi \n
-      7. Simpan struk transaksi sebagai bukti pembayaran \n
-    `,
+      title: "BRImo BRI",
+      content: (
+        <div>
+          <ol>
+            <li>1. Masukkan Kartu ATM & PIN </li>
+            <li>
+              2. Pilih Menu Transaksi Lainnya &gt; Transfer &gt; ke Rekening BRI
+              Virtual Account{" "}
+            </li>
+            <li>
+              3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di
+              akun anda
+            </li>
+            <li>
+              4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai{" "}
+            </li>
+            <li>5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan </li>
+            <li>6. Ikuti transaksi untuk menyelesaikan transaksi </li>
+            <li>7. Simpan struk transaksi sebagai bukti pembayaran </li>
+          </ol>
+        </div>
+      ),
     },
     {
-      title: "Internet Banking BCA",
-      content: `
-      1. Masukkan Kartu ATM & PIN \n
-      2. Pilih Menu Transaksi Lainnya > Transfer > ke Rekening BCA Virtual Account \n
-      3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di akun anda \n
-      4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai \n
-      5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan \n
-      6. Ikuti transaksi untuk menyelesaikan transaksi \n
-      7. Simpan struk transaksi sebagai bukti pembayaran \n
-    `,
+      title: "Internet Banking BRI",
+      content: (
+        <div>
+          <ol>
+            <li>1. Masukkan Kartu ATM & PIN </li>
+            <li>
+              2. Pilih Menu Transaksi Lainnya &gt; Transfer &gt; ke Rekening BRI
+              Virtual Account{" "}
+            </li>
+            <li>
+              3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di
+              akun anda
+            </li>
+            <li>
+              4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai{" "}
+            </li>
+            <li>5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan </li>
+            <li>6. Ikuti transaksi untuk menyelesaikan transaksi </li>
+            <li>7. Simpan struk transaksi sebagai bukti pembayaran </li>
+          </ol>
+        </div>
+      ),
     },
     {
-      title: "Kantor Bank BCA",
-      content: `
-      1. Masukkan Kartu ATM & PIN \n
-      2. Pilih Menu Transaksi Lainnya > Transfer > ke Rekening BCA Virtual Account \n
-      3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di akun anda \n
-      4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai \n
-      5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan \n
-      6. Ikuti transaksi untuk menyelesaikan transaksi \n
-      7. Simpan struk transaksi sebagai bukti pembayaran \n
-    `,
+      title: "Kantor Bank BRI",
+      content: (
+        <div>
+          <ol>
+            <li>1. Masukkan Kartu ATM & PIN </li>
+            <li>
+              2. Pilih Menu Transaksi Lainnya &gt; Transfer &gt; ke Rekening BCA
+              Virtual Account{" "}
+            </li>
+            <li>
+              3. Masukkan 5 angka kode perusahaan dan nomor HP yang terdaftar di
+              akun anda
+            </li>
+            <li>
+              4. Di halaman konfirmasi, pastikan detil pembayaran sudah sesuai{" "}
+            </li>
+            <li>5. Masukkan Jumlah Transfer sesuai dengan Total Tagihan </li>
+            <li>6. Ikuti transaksi untuk menyelesaikan transaksi </li>
+            <li>7. Simpan struk transaksi sebagai bukti pembayaran </li>
+          </ol>
+        </div>
+      ),
     },
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (remainingTime > 0) {
+        const hours = Math.floor(remainingTime / 3600);
+        const minutes = Math.floor((remainingTime % 3600) / 60);
+        const seconds = remainingTime % 60;
+
+        const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+          .toString()
+          .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        setRemainingTime(remainingTime - 1);
+        setFormattedTime(formattedTime);
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [remainingTime]);
+
   return (
-    <div
-      onClick={onClose}
-      className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center"
-    >
-      <div className="bg-white p-16 rounded w-[60%] h-[95%]">
-        <div className=" flex flex-col justify-center items-center top-0">
+    <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
+      <div className="bg-white p-16 rounded w-[60%] h-[95%] ">
+        <div>
+          <button
+            className=" p-3 font-bold text-orange-600 text-2xl"
+            onClick={onClose}
+          >
+            X
+          </button>
+        </div>
+        <div className=" flex flex-col justify-center items-center top-0 mb-6">
           <p className="text-lg font-semibold">Selesaikan Pembayaran Dalam</p>
-          <span className="text-orange-400 font-bold">24:00:00</span>
+          <p>
+            <p>{formattedTime}</p>
+          </p>
         </div>
         <div className="flex flex-col border rounded p-1 justify-between border-b-2">
           <div className="border-b flex flex-row justify-between">
@@ -109,16 +219,37 @@ export default function BriVAModal({ isOpen, onClose, selectedBank }) {
               </h1>
             </div>
             <button
-              className="text-orange-600 font-semibold text-md p-0 "
+              className="text-orange-600 text-xl p-[0px] font-semibold text-md "
               onClick={copyToClipboard}
             >
               Salin
             </button>
           </div>
+          <div className="flex flex-row justify-between">
+            <div>
+              <p className="p-2 text-lg font-semibold text-orange-600">
+                Total:
+              </p>
+            </div>
+            <div>
+              {totalPrice === "Free" ? (
+                <p className="p-2 text-lg font-semibold text-orange-600">
+                  Rp. 0 (FREE)
+                </p>
+              ) : (
+                <span className="text-lg font-semibold text-orange-600">
+                  {formatter.format(totalPrice)}
+                </span>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="text-center">
-          <button className="px-5 py-2 my-5 bg-white border-orange-600 border p-3 text-orange-600 font-semibold rounded hover:bg-gray-100 hover:shadow-md">
+          <button
+            onClick={handleCekStatusClick}
+            className="px-5 py-2 my-5 bg-white border-orange-600 border p-3 text-orange-600 font-semibold rounded hover:bg-gray-100 hover:shadow-md"
+          >
             Cek Status Pembayaran
           </button>
         </div>
@@ -157,6 +288,9 @@ export default function BriVAModal({ isOpen, onClose, selectedBank }) {
         style={{ position: "absolute", left: "-9999px" }}
         readOnly
       />
+      {showSuccessModal && (
+        <PaymentSuccessModal onClose={() => setShowSuccessModal(false)} />
+      )}
     </div>
   );
 }
