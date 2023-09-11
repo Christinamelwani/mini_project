@@ -12,7 +12,11 @@ export default function Event({ eventData }) {
 
   return (
     <div className="bg-black text-white rounded p-4">
-      <img src={eventData.poster} className="mb-4 w-full" />
+      <img 
+        src={eventData.poster} 
+        className="mb-4 w-full object-cover" 
+        style={{ width: '1000px', height: '200px' }}
+      />
       <div className="flex flex-col items-center md:flex-row md:items-center justify-between">
         <h3 className="text-xl font-semibold mb-2 md:mb-0 md:mr-4 text-center md:text-left">
           {eventData.eventName}
