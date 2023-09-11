@@ -14,15 +14,16 @@ export default function YourOrder() {
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
   const [ticketQuantity, setTicketQuantity] = useState(1); // Initialize with 1 ticket
   const [ticketPrice, setTicketPrice] = useState(null);
+  const [taxPercentage, setTaxPercentage] = useState(11);
+  const adminFee = 1000;
 
-  // events.id
   useEffect(() => {
     api
       .get(`/events/${id}`)
       .then((response) => {
         const eventData = response.data;
         setEvents(eventData);
-        setTicketPrice(eventData.ticketPrice); // Set the ticket price here
+        setTicketPrice(eventData.ticketPrice);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,7 +32,6 @@ export default function YourOrder() {
       });
   }, [id]);
 
-  //coupons
   useEffect(() => {
     api
       .get(`/coupons`)
@@ -44,20 +44,6 @@ export default function YourOrder() {
         setIsLoading(false);
       });
   }, []);
-
-  useEffect(() => {
-    if (discountedPrice !== null) {
-      setTotalPrice(discountedPrice);
-    } else {
-      setTotalPrice(ticketPrice * ticketQuantity);
-    }
-  }, [discountedPrice, ticketPrice, ticketQuantity]);
-
-  const formatter = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-  });
 
   const applyCoupon = () => {
     if (events.ticketPrice === "Free") {
@@ -72,20 +58,45 @@ export default function YourOrder() {
       if (selectedCoupon) {
         const discountPercentage = selectedCoupon.discount;
         const discountAmount = (ticketPrice * discountPercentage) / 100;
-        const totalPriceWithoutDiscount = ticketPrice * ticketQuantity;
-        const totalPriceWithOneDiscount =
-          totalPriceWithoutDiscount - discountAmount + ticketPrice;
-        setAppliedCoupon({ code: couponCode, discount: discountPercentage });
-        setDiscountedPrice(totalPriceWithOneDiscount);
+
+        setAppliedCoupon({
+          code: couponCode,
+          discount: discountPercentage,
+          discountAmount: discountAmount,
+        });
+
+        // Calculate the discounted price for one ticket
+        const discountedPriceForOneTicket = ticketPrice - discountAmount;
+        setDiscountedPrice(discountedPriceForOneTicket);
       } else {
         alert("Invalid or Expired Coupon");
         setAppliedCoupon(null);
         setDiscountedPrice(null);
         console.log("Coupon not found");
       }
-      setIsApplyingCoupon(false); // Reset loading state after coupon logic
+      setIsApplyingCoupon(false);
     }, 1500); // Simulated delay of 1500ms
   };
+
+  useEffect(() => {
+    if (discountedPrice !== null) {
+      const subtotal = discountedPrice * ticketQuantity;
+      const taxAmount = (subtotal * taxPercentage) / 100;
+      const total = subtotal + taxAmount + adminFee;
+      setTotalPrice(total);
+    } else {
+      const subtotal = ticketPrice * ticketQuantity;
+      const taxAmount = (subtotal * taxPercentage) / 100;
+      const total = subtotal + taxAmount + adminFee;
+      setTotalPrice(total);
+    }
+  }, [discountedPrice, ticketPrice, ticketQuantity, taxPercentage]);
+
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  });
 
   const incrementQuantity = () => {
     setTicketQuantity(ticketQuantity + 1);
@@ -178,22 +189,26 @@ export default function YourOrder() {
           <div className="p-2 flex justify-between items-center">
             <p className="p-2">Discount ({appliedCoupon.code}):</p>
             <p className="p-2">
-              -{" "}
-              {formatter.format(
-                (ticketPrice * appliedCoupon.discount * ticketQuantity) / 100
-              )}
+              - {formatter.format(appliedCoupon.discountAmount)}
             </p>
           </div>
         ) : null}
         <hr />
         <div className="p-2 flex justify-between items-center">
-          <p className="p-2">Total:</p>
+          <p className="p-2">Tax ({taxPercentage}%):</p>
           <p className="p-2">
-            {events.ticketPrice === "Free"
-              ? "Rp. 0 (FREE)"
-              : formatter.format(totalPrice)}
-          </p>{" "}
-          {/* Format totalPrice */}
+            {formatter.format((totalPrice - adminFee) * (taxPercentage / 100))}
+          </p>
+        </div>
+        <hr />
+        <div className="p-2 flex justify-between items-center">
+          <p className="p-2">Admin Fee:</p>
+          <p className="p-2">{formatter.format(adminFee)}</p>
+        </div>
+        <hr />
+        <div className="p-2 flex justify-between items-center my-5">
+          <p className="p-2 font-bold">Total:</p>
+          <p className="p-2 font-bold">{formatter.format(totalPrice)}</p>
         </div>
         <hr />
       </div>
