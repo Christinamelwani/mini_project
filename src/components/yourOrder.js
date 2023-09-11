@@ -15,14 +15,13 @@ export default function YourOrder() {
   const [ticketQuantity, setTicketQuantity] = useState(1); // Initialize with 1 ticket
   const [ticketPrice, setTicketPrice] = useState(null);
 
-  // events.id
   useEffect(() => {
     api
       .get(`/events/${id}`)
       .then((response) => {
         const eventData = response.data;
         setEvents(eventData);
-        setTicketPrice(eventData.ticketPrice); // Set the ticket price here
+        setTicketPrice(eventData.ticketPrice);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,7 +30,6 @@ export default function YourOrder() {
       });
   }, [id]);
 
-  //coupons
   useEffect(() => {
     api
       .get(`/coupons`)
@@ -44,20 +42,6 @@ export default function YourOrder() {
         setIsLoading(false);
       });
   }, []);
-
-  useEffect(() => {
-    if (discountedPrice !== null) {
-      setTotalPrice(discountedPrice);
-    } else {
-      setTotalPrice(ticketPrice * ticketQuantity);
-    }
-  }, [discountedPrice, ticketPrice, ticketQuantity]);
-
-  const formatter = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-  });
 
   const applyCoupon = () => {
     if (events.ticketPrice === "Free") {
@@ -72,20 +56,45 @@ export default function YourOrder() {
       if (selectedCoupon) {
         const discountPercentage = selectedCoupon.discount;
         const discountAmount = (ticketPrice * discountPercentage) / 100;
-        const totalPriceWithoutDiscount = ticketPrice * ticketQuantity;
-        const totalPriceWithOneDiscount =
-          totalPriceWithoutDiscount - discountAmount + ticketPrice;
-        setAppliedCoupon({ code: couponCode, discount: discountPercentage });
-        setDiscountedPrice(totalPriceWithOneDiscount);
+
+        setAppliedCoupon({
+          code: couponCode,
+          discount: discountPercentage,
+          discountAmount: discountAmount,
+        });
+
+        // Calculate the discounted price for one ticket
+        const discountedPriceForOneTicket = ticketPrice - discountAmount;
+        setDiscountedPrice(discountedPriceForOneTicket);
       } else {
         alert("Invalid or Expired Coupon");
         setAppliedCoupon(null);
         setDiscountedPrice(null);
         console.log("Coupon not found");
       }
-      setIsApplyingCoupon(false); // Reset loading state after coupon logic
+      setIsApplyingCoupon(false);
     }, 1500); // Simulated delay of 1500ms
   };
+
+  useEffect(() => {
+    if (discountedPrice !== null) {
+      // Calculate the subtotal for all tickets
+      const subtotal = ticketPrice * ticketQuantity;
+
+      // Calculate the total price by subtracting the fixed discount amount
+      const totalDiscountedPrice = subtotal - appliedCoupon.discountAmount;
+
+      setTotalPrice(totalDiscountedPrice);
+    } else {
+      setTotalPrice(ticketPrice * ticketQuantity);
+    }
+  }, [discountedPrice, ticketPrice, ticketQuantity, appliedCoupon]);
+
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  });
 
   const incrementQuantity = () => {
     setTicketQuantity(ticketQuantity + 1);
@@ -178,10 +187,7 @@ export default function YourOrder() {
           <div className="p-2 flex justify-between items-center">
             <p className="p-2">Discount ({appliedCoupon.code}):</p>
             <p className="p-2">
-              -{" "}
-              {formatter.format(
-                (ticketPrice * appliedCoupon.discount * ticketQuantity) / 100
-              )}
+              - {formatter.format(appliedCoupon.discountAmount)}
             </p>
           </div>
         ) : null}
