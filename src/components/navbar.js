@@ -1,43 +1,59 @@
-import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState({});
 
-  const toggleMenu = () => {
-    console.log("clicked");
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
+
+  function logout() {
+    setUser({});
+    localStorage.removeItem("user");
+  }
 
   return (
-    <nav className="bg-white relative text-orange-600 text-md font-semibold mb-7 p-5 w-full shadow-lg ">
-      <div className="flex flex-row lg:flex-row lg:justify-between md:flex-col">
-        <div className="md:hidden">
-          <FaBars className="mb-5" onClick={toggleMenu} />
-        </div>
-        <ul
-          className={`lg:flex lg:ml-5 lg:gap-5 ${
-            isMenuOpen ? "hidden md:flex-col" : "lg:flex-row md:flex hidden"
-          }`}
-        >
-          <li>Sports</li>
-          <li>Music</li>
-          <li>Shows</li>
-          <li>Cities</li>
-        </ul>
-        <ul
-          className={`lg:flex lg:ml-5 lg:gap-5 ${
-            isMenuOpen ? "hidden md:flex-col" : "lg:flex-row md:flex hidden"
-          }`}
-        >
-          <li>USD</li>
-          <li>Sell</li>
-          <li>Points</li>
-          <li>Logout</li>
-        </ul>
-      </div>
+    <div
+    className="h-[20vh] text-white bg-cover bg-top"
+    style={{
+      backgroundImage:
+        "url(https://seatgeek.com/_next/image?url=https%3A%2F%2Fseatgeek.com%2Fimages%2Fimage_uploads%2Fhomepage%2Fhomepage-medium.jpg&w=3840&q=75)",
+    }}
+    >
+    <div className="p-4 md:px-8">
+    <nav className="flex justify-between">
+      <ul className="flex gap-5">
+        <Link to="/"><li>Home</li></Link>
+        <Link to="/kompetisi"><li className="hidden md:block">Kompetisi</li></Link>
+        <Link to="/music"><li className="hidden md:block">Music</li></Link>
+        <Link to="/workshop"><li className="hidden md:block">Workshop</li></Link>
+        <Link to="/others"><li className="hidden md:block">Others</li></Link>
+      </ul>
+      <ul className="flex gap-5">
+        <li className="hidden md:block">USD</li>
+        <li className="hidden md:block">Sell</li>
+        <li className="hidden md:block">Points: {user.points}</li>
+        <Link to="/login">
+          <li className="hidden md:block">
+            {user.name ? (
+              <span onClick={() => logout()}>Logout</span>
+            ) : (
+              "Login"
+            )}
+          </li>
+        </Link>
+      </ul>
     </nav>
-  );
+    </div>
+    <div className="flex justify-between items-center p-4 md:px-8">
+      <h1 className="text-4xl font-bold">Navbar</h1>
+    </div>
+    </div>
+);
 }
 
 export default Navbar;

@@ -746,5 +746,15 @@
       "code": "SEPTEMBERCERIA",
       "discount": 10
     }
+  ],
+  "organizer": [
+    {
+      "id": 1,
+      "org_name": "A24"
+    },
+    {
+      "id": 2,
+      "org_name": "Bigg Topz LLC"
+    }
   ]
 }
