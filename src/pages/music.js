@@ -3,14 +3,17 @@ import Event from "../components/event"
 import ModalComponent from "../components/modal";
 import Register from "../components/registerModal";
 import Referral from "../components/referralModal";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function Music() {
   const events = useSelector((state) => state.event.events);
   const modalContent = useSelector((state) => state.modal.content);
 
   return (
+    <div>
+      <Navbar />
     <section className="p-4 md:p-20 gap-5">
-      <h2 className="text-xl font-bold">Music</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {events.filter(event => event.category === 'music').map((event) => (
             <Event key={event.id} eventData={event} />
@@ -20,5 +23,7 @@ export default function Music() {
       </ModalComponent>
       </div>
     </section>
+    <Footer />
+    </div>
   );
 }

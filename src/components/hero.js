@@ -27,6 +27,7 @@ export default function Hero() {
       <header className="p-4 md:px-8">
         <nav className="flex justify-between">
           <ul className="flex gap-5">
+            <Link to="/"><li>Home</li></Link>
             <Link to="/kompetisi"><li className="hidden md:block">Kompetisi</li></Link>
             <Link to="/music"><li className="hidden md:block">Music</li></Link>
             <Link to="/workshop"><li className="hidden md:block">Workshop</li></Link>
