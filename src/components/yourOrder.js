@@ -14,6 +14,8 @@ export default function YourOrder() {
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
   const [ticketQuantity, setTicketQuantity] = useState(1); // Initialize with 1 ticket
   const [ticketPrice, setTicketPrice] = useState(null);
+  const [taxPercentage, setTaxPercentage] = useState(11);
+  const adminFee = 1000;
 
   useEffect(() => {
     api
@@ -78,17 +80,17 @@ export default function YourOrder() {
 
   useEffect(() => {
     if (discountedPrice !== null) {
-      // Calculate the subtotal for all tickets
-      const subtotal = ticketPrice * ticketQuantity;
-
-      // Calculate the total price by subtracting the fixed discount amount
-      const totalDiscountedPrice = subtotal - appliedCoupon.discountAmount;
-
-      setTotalPrice(totalDiscountedPrice);
+      const subtotal = discountedPrice * ticketQuantity;
+      const taxAmount = (subtotal * taxPercentage) / 100;
+      const total = subtotal + taxAmount + adminFee;
+      setTotalPrice(total);
     } else {
-      setTotalPrice(ticketPrice * ticketQuantity);
+      const subtotal = ticketPrice * ticketQuantity;
+      const taxAmount = (subtotal * taxPercentage) / 100;
+      const total = subtotal + taxAmount + adminFee;
+      setTotalPrice(total);
     }
-  }, [discountedPrice, ticketPrice, ticketQuantity, appliedCoupon]);
+  }, [discountedPrice, ticketPrice, ticketQuantity, taxPercentage]);
 
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -193,13 +195,20 @@ export default function YourOrder() {
         ) : null}
         <hr />
         <div className="p-2 flex justify-between items-center">
-          <p className="p-2">Total:</p>
+          <p className="p-2">Tax ({taxPercentage}%):</p>
           <p className="p-2">
-            {events.ticketPrice === "Free"
-              ? "Rp. 0 (FREE)"
-              : formatter.format(totalPrice)}
-          </p>{" "}
-          {/* Format totalPrice */}
+            {formatter.format((totalPrice - adminFee) * (taxPercentage / 100))}
+          </p>
+        </div>
+        <hr />
+        <div className="p-2 flex justify-between items-center">
+          <p className="p-2">Admin Fee:</p>
+          <p className="p-2">{formatter.format(adminFee)}</p>
+        </div>
+        <hr />
+        <div className="p-2 flex justify-between items-center my-5">
+          <p className="p-2 font-bold">Total:</p>
+          <p className="p-2 font-bold">{formatter.format(totalPrice)}</p>
         </div>
         <hr />
       </div>
