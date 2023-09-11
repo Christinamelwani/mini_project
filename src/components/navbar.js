@@ -18,7 +18,7 @@ function Navbar() {
 
   return (
     <div
-    className="h-[15vh] text-white bg-cover bg-top"
+    className="h-[20vh] text-white bg-cover bg-top"
     style={{
       backgroundImage:
         "url(https://seatgeek.com/_next/image?url=https%3A%2F%2Fseatgeek.com%2Fimages%2Fimage_uploads%2Fhomepage%2Fhomepage-medium.jpg&w=3840&q=75)",
@@ -49,7 +49,7 @@ function Navbar() {
       </ul>
     </nav>
     </div>
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center p-4 md:px-8">
       <h1 className="text-4xl font-bold">Navbar</h1>
     </div>
     </div>
