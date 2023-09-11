@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({title}) {
   const [user, setUser] = useState({});
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function Navbar() {
     </nav>
     </div>
     <div className="flex justify-between items-center p-4 md:px-8">
-      <h1 className="text-4xl font-bold">Navbar</h1>
+      <h1 className="text-4xl font-bold">{title}</h1>
     </div>
     </div>
 );

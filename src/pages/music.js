@@ -5,14 +5,19 @@ import Register from "../components/registerModal";
 import Referral from "../components/referralModal";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import { useEffect } from "react";
 
 export default function Music() {
   const events = useSelector((state) => state.event.events);
   const modalContent = useSelector((state) => state.modal.content);
 
+  useEffect(() => {
+    document.title = "Music";
+  }, []);
+
   return (
     <div>
-      <Navbar />
+      <Navbar title={"Music"}/>
     <section className="p-4 md:p-20 gap-5">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {events.filter(event => event.category === 'music').map((event) => (
