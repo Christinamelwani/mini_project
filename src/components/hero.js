@@ -18,7 +18,7 @@ export default function Hero() {
 
   return (
     <div
-      className="h-[80vh] text-white bg-cover bg-top"
+      className="h-[100vh] text-white bg-cover bg-top"
       style={{
         backgroundImage:
           "url(https://seatgeek.com/_next/image?url=https%3A%2F%2Fseatgeek.com%2Fimages%2Fimage_uploads%2Fhomepage%2Fhomepage-medium.jpg&w=3840&q=75)",
@@ -50,7 +50,7 @@ export default function Hero() {
         </nav>
       </header>
       <section className="flex flex-col justify-center items-center h-[50vh] md:h-[60vh]">
-        <div className="bg-black p-4 text-center md:text-left md:w-1/2 md:ml-20 lg:ml-32">
+        <div className="p-4 text-center md:text-left md:w-1/2 md:ml-20 lg:ml-32">
           <h1 className="text-5xl md:text-6xl">
             {user.name ? `Welcome, ${user.name}!` : "Welcome!"}
           </h1>
@@ -62,7 +62,7 @@ export default function Hero() {
           <div className="flex items-center mt-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 mr-2 text-white"
+              className="w-6 h-6 mr-2 "
               viewBox="0 0 50 50"
             >
               <path
@@ -73,7 +73,7 @@ export default function Hero() {
             <input
               type="text"
               placeholder="What do you want to see live?"
-              className="bg-white rounded-full px-4 py-2 w-full"
+              className="bg-white rounded-full px-4 py-2 w-full md:w-3/4 text-black"
             />
           </div>
         </div>
