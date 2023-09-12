@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function Event({ eventData }) {
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
+  const [organizer, setOrganizer] = useState({});
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
@@ -14,17 +15,27 @@ export default function Event({ eventData }) {
     }
   }, []);
 
+  useEffect(() => {
+    const savedOrganizer = JSON.parse(localStorage.getItem("organizer"));
+    if (savedOrganizer) {
+      setOrganizer(savedOrganizer);
+    }
+  }, []);
+
   function registerForEvent() {
     console.log(user);
-    if (user.name === undefined) {
-      alert("Please login first!");
-      return;
-    } else if (user.role === "organizer") {
-      alert("Organizer cannot register for event!");
-      return;
-    } else {
-      dispatch(setModalIsOpen(true));
-      dispatch(setActiveEvent(eventData));
+    console.log(organizer);
+    switch (user.name || organizer.name) {
+      case user.name:
+        dispatch(setModalIsOpen(true));
+        dispatch(setActiveEvent(eventData));
+        break;
+      case organizer.name:
+        alert("Organizer cannot register for event!");
+        break;
+      default:
+        alert("Please login first!");
+        break;
     }
   }
 

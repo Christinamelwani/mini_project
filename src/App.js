@@ -7,6 +7,8 @@ import Workshop from "./pages/workshop";
 import Kompetisi from "./pages/kompetisi";
 import Others from "./pages/others";
 import Checkout from "./components/checkout";
+import OrgLogin from "./pages/organizer_login";
+import OrgDashboard from "./pages/organizer_dashboard";
 import api from "./api";
 import { setEvents } from "./features/event/eventSlice";
 import { setUser } from "./features/user/userSlice";
@@ -39,6 +41,8 @@ function App() {
       <Route path="/kompetisi" element={<Kompetisi />} />
       <Route path="/others" element={<Others />} />
       <Route path="/checkout/:id" element={<Checkout />} />
+      <Route path="/organizer/login" element={<OrgLogin />} />
+      <Route path="/organizer/dashboard" element={<OrgDashboard />} />
     </Routes>
   );
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   const [user, setUser] = useState({});
+  const [organizer, setOrganizer] = useState({});
 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
@@ -11,9 +12,21 @@ export default function Hero() {
     }
   }, []);
 
+  useEffect(() => {
+    const savedOrganizer = JSON.parse(localStorage.getItem("organizer"));
+    if (savedOrganizer) {
+      setOrganizer(savedOrganizer);
+    }
+  }, []);
+
   function logout() {
-    setUser({});
-    localStorage.removeItem("user");
+    if (user.name) {
+      setUser({});
+      localStorage.removeItem("user");
+    } else if (organizer.name) {
+      setOrganizer({});
+      localStorage.removeItem("organizer");
+    }
   }
 
   return (
@@ -39,7 +52,7 @@ export default function Hero() {
             <li className="hidden md:block">Points: {user.points}</li>
             <Link to="/login">
               <li className="hidden md:block">
-                {user.name ? (
+                {user.name || organizer.name ? (
                   <span onClick={() => logout()}>Logout</span>
                 ) : (
                   "Login"
