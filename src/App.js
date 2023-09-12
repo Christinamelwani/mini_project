@@ -6,7 +6,7 @@ import Music from "./pages/music";
 import Workshop from "./pages/workshop";
 import Kompetisi from "./pages/kompetisi";
 import Others from "./pages/others";
-import Checkout from "./components/checkout";
+import Checkout from "./pages/checkout";
 import OrgLogin from "./pages/organizer_login";
 import OrgDashboard from "./pages/organizer_dashboard";
 import api from "./api";
