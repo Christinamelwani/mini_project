@@ -5,6 +5,15 @@ export default function EventsTable() {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [organizer, setOrganizer] = useState({});
+    const [filterEvents, setFilterEvents] = useState([]);
+
+    useEffect(() => {
+        const savedOrganizer = JSON.parse(localStorage.getItem("organizer"));
+        if (savedOrganizer) {
+            setOrganizer(savedOrganizer);
+        }
+    }, []);
     
     useEffect(() => {
         const fetchEvents = async () => {
@@ -20,6 +29,12 @@ export default function EventsTable() {
     
         fetchEvents();
     }, []);
+
+    useEffect(() => {
+        const filteredEvents = events.filter((event) => event.organizer_id === organizer.id);
+        setFilterEvents(filteredEvents);
+    }, [events, organizer]);
+
     
     if (loading) {
         return <p>Loading...</p>;
@@ -42,15 +57,11 @@ export default function EventsTable() {
             </tr>
         </thead>
         <tbody>
-            {events.map((event, index) => (
-            <tr key={index}>
+            {filterEvents.map((event, index) => (
+            <tr key={event.id}>
                 <td className="border px-4 py-2">{index + 1}</td>
                 <td className="border px-4 py-2">{event.eventName}</td>
-                <td className="border px-4 py-2">
-                    {event.date.map((date, index) => (
-                        <div key={index}>{date}</div>
-                    ))}
-                </td>
+                <td className="border px-4 py-2">{event.date}</td>
                 <td className="border px-4 py-2">{event.time}</td>
                 <td className="border px-4 py-2">{event.location}</td>
                 <td className="border px-4 py-2">{event.description}</td>
