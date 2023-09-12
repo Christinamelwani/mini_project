@@ -1,13 +1,31 @@
 import { useDispatch } from "react-redux";
 import { setModalIsOpen } from "../features/modal/modalSlice";
 import { setActiveEvent } from "../features/event/eventSlice";
+import { useEffect, useState } from "react";
 
 export default function Event({ eventData }) {
   const dispatch = useDispatch();
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
 
   function registerForEvent() {
-    dispatch(setModalIsOpen(true));
-    dispatch(setActiveEvent(eventData));
+    console.log(user);
+    if (user.name === undefined) {
+      alert("Please login first!");
+      return;
+    } else if (user.role === "organizer") {
+      alert("Organizer cannot register for event!");
+      return;
+    } else {
+      dispatch(setModalIsOpen(true));
+      dispatch(setActiveEvent(eventData));
+    }
   }
 
   return (
