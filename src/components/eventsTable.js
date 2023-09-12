@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../api";
+import { Link } from "react-router-dom";
 
 export default function EventsTable() {
     const [events, setEvents] = useState([]);
@@ -45,29 +46,29 @@ export default function EventsTable() {
     }
     
     return (
-        <table className="table-auto w-full">
-        <thead>
-            <tr>
-            <th className="px-4 py-2">No.</th>
-            <th className="px-4 py-2">Event Name</th>
-            <th className="px-4 py-2">Event Date</th>
-            <th className="px-4 py-2">Event Time</th>
-            <th className="px-4 py-2">Event Location</th>
-            <th className="px-4 py-2">Event Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            {filterEvents.map((event, index) => (
-            <tr key={event.id}>
-                <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">{event.eventName}</td>
-                <td className="border px-4 py-2">{event.date}</td>
-                <td className="border px-4 py-2">{event.time}</td>
-                <td className="border px-4 py-2">{event.location}</td>
-                <td className="border px-4 py-2">{event.description}</td>
-            </tr>
-            ))}
-        </tbody>
-        </table>
+		<div id='card' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+			<table id="events" class="stripe hover" style={{width: "100%", paddingTop: "1em", paddingBottom: "1em"}}>
+				<thead>
+					<tr>
+						<th data-priority="1">No</th>
+						<th data-priority="2">Event Name</th>
+						<th data-priority="3">Date</th>
+						<th data-priority="4">Location</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {filterEvents.map((event, index) => (
+                        <tr key={event.id}>
+                            <td>{index + 1}</td>
+                            <td>
+                                <Link to={`/events/${event.id}`}>{event.eventName}</Link>
+                            </td>
+                            <td>{event.date}</td>
+                            <td>{event.location}</td>
+                        </tr>
+                    ))}
+				</tbody>
+			</table>
+		</div>
     );
     }

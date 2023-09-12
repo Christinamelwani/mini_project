@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 import { useDispatch } from "react-redux";
-import { setUser } from "../features/user/userSlice";
+import { setOrganizer } from "../features/organizer/organizerSlice";
 import { Link } from "react-router-dom";
 
 export default function OrgLogin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.title = "Organizer Login";
+  }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,13 +19,13 @@ export default function OrgLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const users = await api.get("/organizer");
+    const organizers = await api.get("/organizer");
 
-    const user = users.data.find((user) => user.email === email);
+    const organizer = organizers.data.find((organizer) => organizer.email === email);
 
-    if (user) {
-      localStorage.setItem("organizer", JSON.stringify(user));
-      dispatch(setUser(user));
+    if (organizer) {
+      localStorage.setItem("organizer", JSON.stringify(organizer));
+      dispatch(setOrganizer(organizer));
       navigate("/organizer/dashboard");
     } else {
       alert("Organizer does not exist!");
