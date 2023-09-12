@@ -47,9 +47,17 @@ function Navbar({title}) {
         <Link to="/others"><li className="hidden md:block">Others</li></Link>
       </ul>
       <ul className="flex gap-5">
-        <li className="hidden md:block">USD</li>
-        <li className="hidden md:block">Sell</li>
-        <li className="hidden md:block">Points: {user.points}</li>
+      {organizer.name ? (
+            <Link to="/organizer/dashboard">
+              <li className="hidden md:block" href="/organizer/dashboard">Dashboard</li>
+            </Link> 
+              ) : (
+                <>
+                  <li className="hidden md:block">USD</li>
+                  <li className="hidden md:block">Sell</li>
+                  <li className="hidden md:block">Points: {user.points}</li>
+                </>
+              )}
         <Link to="/login">
           <li className="hidden md:block">
             {user.name || organizer.name ? (

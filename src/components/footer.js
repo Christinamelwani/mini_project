@@ -1,4 +1,15 @@
+import { useState, useEffect } from "react";
+
 export default function Footer() {
+  const [organizer, setOrganizer] = useState({});
+
+  useEffect(() => {
+    const savedOrganizer = JSON.parse(localStorage.getItem("organizer"));
+    if (savedOrganizer) {
+      setOrganizer(savedOrganizer);
+    }
+  }, []);
+
   return (
     <footer className="bg-white dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl">
@@ -24,7 +35,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mb-4">
-                <a href="/organizer/login" className="hover:underline">
+                <a href={organizer.name ? "/organizer/dashboard" : "/organizer/login"} className="hover:underline">
                   Organizer Dashboard
                 </a>
               </li>

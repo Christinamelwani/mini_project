@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/user/userSlice";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-[url(https://seatgeek.com/_next/image?url=https%3A%2F%2Fseatgeek.com%2Fimages%2Fimage_uploads%2Fhomepage%2Fhomepage-medium.jpg&w=3840&q=75)]">
       <div className="bg-white p-8 rounded-lg shadow-md w-full md:w-1/3">
         <h2 className="text-2xl font-bold mb-4">Login</h2>
         <form onSubmit={handleLogin}>
@@ -64,6 +65,11 @@ export default function Login() {
           >
             Login
           </button>
+          <Link to="/">
+            <div className="text-center mt-4">
+              <span className="text-sm">Back to Home</span>
+            </div>
+          </Link>
         </form>
       </div>
     </div>
