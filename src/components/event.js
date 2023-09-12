@@ -23,22 +23,16 @@ export default function Event({ eventData }) {
   }, []);
 
   function registerForEvent() {
-    console.log(user);
-    console.log(organizer);
-    switch (user.name || organizer.name) {
-      case user.name:
-        dispatch(setModalIsOpen(true));
-        dispatch(setActiveEvent(eventData));
-        break;
-      case organizer.name:
-        alert("Organizer cannot register for event!");
-        break;
-      default:
-        alert("Please login first!");
-        break;
+    if (user && user.name) {
+      dispatch(setModalIsOpen(true));
+      dispatch(setActiveEvent(eventData));
+    } else if (organizer && organizer.name) {
+      alert("Organizer cannot register for event!");
+    } else {
+      alert("Please login first!");
     }
   }
-
+    
   return (
     <div className="bg-black text-white rounded p-4">
       <img 
