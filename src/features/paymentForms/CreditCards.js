@@ -55,8 +55,9 @@ const CreditCardForm = () => {
           {" "}
           Card Number
         </label>
-        <div className="ml-[15px] flex items-center border border-gray-300 rounded-md p-2">
+        <div className="ml-3 flex items-center border border-gray-300 rounded-md p-2">
           <input
+            required
             type="card"
             id="cardNumber"
             value={cardNumber}
@@ -77,6 +78,7 @@ const CreditCardForm = () => {
           Name on Card:{" "}
         </label>
         <input
+          required
           type="text"
           id="cardName"
           placeholder="Enter The Name on Card"
@@ -90,6 +92,7 @@ const CreditCardForm = () => {
             Expiration Date:{" "}
           </label>
           <input
+            required
             type="text"
             id="cardExpiry"
             placeholder="MM / YY"
@@ -115,6 +118,7 @@ const CreditCardForm = () => {
             CVV:{" "}
           </label>
           <input
+            required
             type="text"
             id="cardCvv"
             placeholder="CVV"
@@ -127,7 +131,7 @@ const CreditCardForm = () => {
       <div className="items-center flex justify-start ml-1 mt-3">
         <button
           className="text-white font-bold bg-orange-600 border-1 rounded-lg max-w-full flex items-center  justify-center p-2 m-2 "
-          type="button"
+          type="submit"
           onClick={toggleModal}
         >
           Submit

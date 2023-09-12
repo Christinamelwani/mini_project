@@ -6,6 +6,7 @@ import { City, Country, State } from "country-state-city";
 import Selector from "./Selector";
 
 export default function BillingInfo() {
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   let countryData = Country.getAllCountries();
   const indonesiaCountry = countryData.find(
     (country) => country.name === "Indonesia"
@@ -66,7 +67,7 @@ export default function BillingInfo() {
       postalCode: "",
       country: "",
     },
-    validationSchema: billingInfoSchema, // Use the Yup validation schema here
+    validationSchema: billingInfoSchema,
     onSubmit: (values) => {
       console.log("Form submitted with values:", values);
     },
@@ -182,7 +183,39 @@ export default function BillingInfo() {
                 <div className="error">{formik.errors.postalCode}</div>
               ) : null}
             </div>
-            <PaymentMethodSelector />
+            <div className="flex flex-col mt-5">
+              <div className="flex">
+                <input
+                  className="p-2 mr-2"
+                  type="checkbox"
+                  name="tnc"
+                  id="tnc"
+                  checked={acceptedTerms}
+                  onChange={() => setAcceptedTerms(!acceptedTerms)}
+                  required
+                />
+                <label className="text-sm" htmlFor="tnc">
+                  I Agree To The{" "}
+                  <a className="text-sm text-orange-600" href="/">
+                    {" "}
+                    Terms and Condition
+                  </a>
+                </label>
+              </div>
+              <div className="flex">
+                <input
+                  className="p-2 mr-2"
+                  type="checkbox"
+                  name="newsletter"
+                  id="newsletter"
+                />
+                <label className="text-sm" htmlFor="newsletter">
+                  Subscribe To Newsletter
+                </label>
+              </div>
+            </div>
+
+            {acceptedTerms && <PaymentMethodSelector />}
           </div>
         </Form>
       )}
