@@ -6,7 +6,7 @@ import Music from "./pages/music";
 import Workshop from "./pages/workshop";
 import Kompetisi from "./pages/kompetisi";
 import Others from "./pages/others";
-import Checkout from "./components/checkout";
+import Checkout from "./pages/checkout";
 import api from "./api";
 import { setEvents } from "./features/event/eventSlice";
 import { setUser } from "./features/user/userSlice";

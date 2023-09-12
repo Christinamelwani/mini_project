@@ -1,5 +1,5 @@
-import React, { useState, useReducer } from "react";
-import { FaCreditCard, FaWallet, FaQrcode } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaCreditCard, FaWallet } from "react-icons/fa";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 //form
 import CreditCardForm from "./CreditCards";

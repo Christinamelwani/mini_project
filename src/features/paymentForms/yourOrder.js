@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
+import api from "../../api";
 import { useParams } from "react-router-dom";
-import { setTotalPrice } from "../features/paymentForms/paymentSlice";
+import { setTotalPrice } from "../paymentForms/paymentSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function YourOrder() {
@@ -110,7 +110,7 @@ export default function YourOrder() {
 
   return (
     <div className="w-full">
-      <h1 className="text-xl font-bold">Your Order</h1>
+      <h1 className="text-xl font-bold mb-9">Pesanan Anda</h1>
       <div className="border-[1px] shadow-md mb-8 rounded p-4">
         {isLoading ? (
           <p>Loading...</p>
@@ -158,11 +158,11 @@ export default function YourOrder() {
           </div>
         </div>
         <input
-          className="mb-5 border border-black rounded-xl py-2"
+          className="mb-5 border border-black rounded-xl p-2"
           id="couponCode"
           type="text"
           value={couponCode}
-          placeholder="Kode Kupon"
+          placeholder="Masukan Kode Kupon"
           onChange={(e) => setCouponCode(e.target.value)}
         />
         <button
@@ -174,7 +174,7 @@ export default function YourOrder() {
           }`}
           disabled={isApplyingCoupon || events.ticketPrice === "Free"}
         >
-          Pakai Coupon
+          Pakai Kupon
         </button>
         <div className="p-2 flex justify-between items-center">
           <p className="p-2">Subtotal:</p>

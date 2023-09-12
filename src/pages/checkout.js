@@ -1,7 +1,7 @@
 import BillingInfo from "../features/paymentForms/BillingInfo.js";
-import YourOrder from "./yourOrder.js";
-import Navbar from "./navbar.js";
-import Footer from "./footer.js";
+import YourOrder from "../features/paymentForms/yourOrder.js";
+import Navbar from "../components/navbar.js";
+import Footer from "../components/footer.js";
 import api from "../api";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -25,12 +25,9 @@ function Checkout() {
       .catch((err) => {
         console.log(err);
       });
-
-    // Clear the timeout when the component unmounts
     return () => clearTimeout(timeout);
   }, []);
 
-  // Render a loading spinner while isLoading is true
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -42,7 +39,7 @@ function Checkout() {
   // Render the actual content when isLoading is false
   return (
     <>
-      <Navbar title={"Checkout Page"} />
+      <Navbar title={"Checkout Tiket"} />
       <div className="lg:flex mb-16 lg:flex-row lg:gap-6 lg:justify-evenly hover:shadow-2xl">
         {/* Mobile view (flex-col) */}
         <div className="flex flex-col lg:hidden">

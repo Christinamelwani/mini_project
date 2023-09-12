@@ -40,19 +40,19 @@ export default function BillingInfo() {
   const billingInfoSchema = Yup.object().shape({
     firstName: Yup.string()
       .required("Name is required")
-      .min(2, "Please enter a valid Name"),
+      .min(2, "Tuliskan Nama Lenkap Anda"),
     lastName: Yup.string()
       .required("Last name is required")
       .min(2, "Please enter a valid"),
     email: Yup.string()
       .required("Email is required")
-      .email("Invalid email address"),
+      .email("Tuliskan E-Mail Valid"),
     address: Yup.string()
       .required("Address is required")
-      .min(5, "Please enter a valid address"),
+      .min(5, "Tuliskan Alamat Yang Valid"),
     postalCode: Yup.string()
       .required("Postal code is required")
-      .matches(/^\d{5}$/, "Invalid postal code (should be 5 digits)"),
+      .matches(/^\d{5}$/, "Tuliskan Kode Pos Yang Valid"),
   });
 
   const formik = Formik({
@@ -89,10 +89,8 @@ export default function BillingInfo() {
       {(formik) => (
         <Form>
           <div>
-            <h1 className="text-xl font-bold">Billing Information</h1>
-            <h6 className="text-xs">
-              SeatGeek checkout is always secure and encrypted
-            </h6>
+            <h1 className="text-xl font-bold">Informasi Pembayaran</h1>
+            <h6 className="text-xs">Transaksi Anda Aman dan Terenkripsi</h6>
           </div>
           <div className="flex flex-col mt-5 mx-2 border border-1 p-5 rounded-xl">
             <div className="flex-col flex">

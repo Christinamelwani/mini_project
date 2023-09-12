@@ -79,7 +79,7 @@
       "poster": "https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20230712092149.jpg",
       "organizer_id": 1
     },
-      {
+    {
       "id": 6,
       "eventName": "ISYANA The 4th Album Showcase",
       "eventId": "6",
@@ -315,7 +315,7 @@
       "age": 28,
       "gender": "male",
       "address": "Jl. Sudirman No. 123, Jakarta",
-      "points": 120
+      "points": 150
     },
     {
       "id": 2,
@@ -326,7 +326,7 @@
       "age": 35,
       "gender": "female",
       "address": "Jl. Ahmad Yani No. 456, Bandung",
-      "points": 140
+      "points": 180
     },
     {
       "id": 3,
@@ -862,6 +862,66 @@
       "code": "5b6ry",
       "user_id": 14,
       "id": 67
+    },
+    {
+      "code": "wgi6j",
+      "user_id": 1,
+      "id": 68
+    },
+    {
+      "code": "oz3v",
+      "user_id": 1,
+      "id": 69
+    },
+    {
+      "code": "f2fco",
+      "user_id": 1,
+      "id": 70
+    },
+    {
+      "code": "paelq",
+      "user_id": 1,
+      "id": 71
+    },
+    {
+      "code": "3g0ao",
+      "user_id": 1,
+      "id": 72
+    },
+    {
+      "code": "drvndf",
+      "user_id": 1,
+      "id": 73
+    },
+    {
+      "code": "yuz5al",
+      "user_id": 1,
+      "id": 74
+    },
+    {
+      "code": "htfop",
+      "user_id": 1,
+      "id": 75
+    },
+    {
+      "code": "19v4z",
+      "user_id": 1,
+      "id": 76
+    },
+    {
+      "code": "4u3c9",
+      "user_id": 1,
+      "id": 77
+    },
+    {
+      "code": "ltb5b",
+      "user_id": 1,
+      "id": 78
+    },
+    {
+      "code": "hs2mj",
+      "user_id": 1,
+      "id": 79
     }
   ],
   "coupons": [
