@@ -1,7 +1,17 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
   const [organizer, setOrganizer] = useState({});
+  const navigate = useNavigate();
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
 
   useEffect(() => {
     const savedOrganizer = JSON.parse(localStorage.getItem("organizer"));
@@ -9,6 +19,14 @@ export default function Footer() {
       setOrganizer(savedOrganizer);
     }
   }, []);
+
+  function handleClick(user) {
+    if (user && user.name) {
+      alert('You cannot access this page.');
+      navigate("/");  // Prevent navigation
+    }
+    return true;  // Allow navigation
+  } 
 
   return (
     <footer className="bg-white dark:bg-gray-900">
@@ -35,7 +53,10 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mb-4">
-                <a href={organizer.name ? "/organizer/dashboard" : "/organizer/login"} className="hover:underline">
+                <a 
+                href={organizer && organizer.name ? "/organizer/dashboard" : (user && user.name ? "/" : "/organizer/login")} 
+                className="hover:underline"
+                onClick={() => handleClick(user)}>
                   Organizer Dashboard
                 </a>
               </li>

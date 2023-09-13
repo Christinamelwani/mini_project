@@ -979,13 +979,19 @@
   "organizer": [
     {
       "id": 1,
-      "name": "A24",
-      "email": "admin@a24.com"
+      "name": "BlackRock",
+      "email": "admin@blackrock.com",
+      "address": "Jl. Ahmad Yani No. 456, Bandung",
+      "contact": "080987654321",
+      "image": "https://pbs.twimg.com/profile_images/1675852182183190528/EubQyAvV_400x400.jpg"
     },
     {
       "id": 2,
-      "name": "Broadway",
-      "email": "admin@broadway.com"
+      "name": "Protech-id",
+      "email": "admin@protech-id.com",
+      "address": "Jl. Gajah Mada No. 789, Surabaya",
+      "contact": "081234567890",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipNgoSNijhvUFb2Ksje7cOCA_jQTitdz2tsXGyhU=s1280-p-no-v1"
     }
   ]
 }

@@ -61,36 +61,32 @@ function EventInfo() {
     }
 
     return (
-      <div className="p-4">
-        <div style={{ display: 'flex', gap: '15px'}}>
-          <div id="poster">
-            <img src={eventData.poster} alt={eventData.eventName} />
+      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div className="md:flex">
+          <div className="md:flex-shrink-0 md:max-w-xs flex items-center">
+            <img className="h-auto w-full object-contain mx-auto" src={eventData.poster} alt={eventData.eventName} />
           </div>
-          <div id="information">
-            <h1 className="text-xl font-bold" style={{ maxWidth: '80%', paddingRight: '20px' }} >{eventData.eventName}</h1>
-            <h2 className="text-lg font-bold">{eventData.category.charAt(0).toUpperCase() + eventData.category.slice(1)}</h2>
-            <p className="text-sm">{eventData.date}</p>
-            <p className="text-sm">{eventData.time}</p>
-            <p className="text-sm">{eventData.location}</p>
-            <p className="text-sm">{eventData.venue}</p>
-            <p className="text-sm">{eventData.quota}</p>
-            <p className="text-sm">{eventData.ticketPrice}</p>
-            <p className="text-sm">{eventData.maxAttendees}</p>
-            <p className="mt-2" style={{ maxWidth: '40%', paddingRight: '20px' }}>{eventData.description}</p>
-            <br />
+          <div className="p-8">
+            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{eventData.category.charAt(0).toUpperCase() + eventData.category.slice(1)}</div>
+            <h1 className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{eventData.eventName}</h1>
+            <p className="mt-2 text-gray-500">{eventData.date} | {eventData.time}</p>
+            <p className="mt-2 text-gray-500">{eventData.location} | {eventData.venue}</p>
+            <p className="mt-2 text-gray-500">Ticket Price: {eventData.ticketPrice}</p>
+            <p className="mt-2 text-gray-500">Max Attendees: {eventData.maxAttendees}</p>
+            <p className="mt-2 text-gray-500">{eventData.description}</p>
             <button
               onClick={() => registerForEvent()}
-              className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
+              className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
             >
               Register
             </button>
-            <ModalComponent>
+            <ModalComponent className="mt-4">
               {modalContent === "register" ? <Register /> : <Referral />}
             </ModalComponent>
           </div>
         </div>
       </div>
-    );
+    );        
   }
   
   export default EventInfo;   
