@@ -50,6 +50,7 @@ export default function OrgDashboard() {
                     Create Event
                 </button>
             </div>
+            <br />
             <Footer />
         </div>
     );
