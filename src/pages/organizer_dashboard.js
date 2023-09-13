@@ -15,13 +15,13 @@ export default function OrgDashboard() {
 
     return (
         <div>
-            <Navbar />
+            <Navbar title={"Organizer Dashboard"}/>
             <div className="container mx-auto mt-8">
                 {/* Organizer Information Card */}
                 <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex items-center">
                     <div className="w-1/8">
                         {/* Profile picture here */}
-                        <img src={Organizer.image} alt="Profile Picture" className="rounded-full w-32 h-32" />
+                        <img src={Organizer.image} alt="Organizer" className="rounded-full w-32 h-32" />
                     </div>
                     <div className="w-7/8 ml-6">
                         <h2 className="text-xl font-bold mb-4">Organizer Information</h2>
