@@ -4,22 +4,22 @@ import Footer from '../components/footer';
 import Event from '../components/event';
 import SearchBar from '../components/searchBar';
 import { useSelector } from 'react-redux';
-
+import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const SearchPage = () => {
     const events = useSelector((state) => state.event.events);
-    const filteredEvents = events?.filter(event => event?.name?.toLowerCase().includes(searchTerm));
-    
     const [searchTerm, setSearchTerm] = useState('');
+    const filteredEvents = events?.filter(event => event.eventName.toLowerCase().includes(searchTerm));
+    const { search } = useLocation();
     
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(search);
         const query = params.get('query');
         if (query) {
             setSearchTerm(query.toLowerCase());
         }
-    }, []);
+    }, [search]);
     
     const handleSearch = (term) => {
         setSearchTerm(term.toLowerCase());
