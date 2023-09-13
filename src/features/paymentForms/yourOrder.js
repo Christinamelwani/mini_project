@@ -133,7 +133,7 @@ export default function YourOrder() {
         )}
       </div>
       <div className="justify-between flex flex-col ">
-        <div className="mb-5">
+        <div className="mb-5 flex items-center flex flex-col">
           <label htmlFor="ticketQuantity">Jumlah Tiket</label>
           <div className="flex items-center">
             <button
