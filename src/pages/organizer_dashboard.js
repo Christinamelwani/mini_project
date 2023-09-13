@@ -1,11 +1,12 @@
 import EventsTable from "../components/eventsTable";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import CreateEventPage from "./createEventPage";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function OrgDashboard() {
     const [Organizer, setOrganizer] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         const savedOrganizer = JSON.parse(localStorage.getItem("organizer"));
@@ -13,6 +14,10 @@ export default function OrgDashboard() {
             setOrganizer(savedOrganizer);
         }
     }, []);
+
+    const handleCreateEvent = () => {
+        navigate("/organizer/create-event");
+    };
 
     return (
         <div>
@@ -39,7 +44,7 @@ export default function OrgDashboard() {
                     <EventsTable />
                 </div>
                 <button
-                    href="/create-event"
+                    onClick={handleCreateEvent}
                     className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
                 >
                     Create Event

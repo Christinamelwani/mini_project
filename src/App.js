@@ -48,7 +48,7 @@ function App() {
       <Route path="/organizer/dashboard" element={<OrgDashboard />} />
       <Route path="/events/:id" element={<Events />} />
       <Route path="/search" element={<SearchPage />} />
-      <Route path="/create-event" element={<CreateEventPage />} />
+      <Route path="/organizer/create-event" element={<CreateEventPage />} />
     </Routes>
   );
 }
