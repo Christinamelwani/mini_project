@@ -1,9 +1,12 @@
 import api from "../api";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setModalIsOpen } from "../features/modal/modalSlice";  
 import { setActiveEvent } from "../features/event/eventSlice";
+import Register from "./registerModal";
+import Referral from "./referralModal";
+import ModalComponent from "./modal";
 
 function EventInfo() {
     const [eventData, setEventData] = useState(null);
@@ -12,6 +15,7 @@ function EventInfo() {
     const [organizer, setOrganizer] = useState({});
     const dispatch = useDispatch();
     const { id } = useParams();
+    const modalContent = useSelector((state) => state.modal.content);
 
     useEffect(() => {
       const savedUser = JSON.parse(localStorage.getItem("user"));
@@ -80,6 +84,9 @@ function EventInfo() {
             >
               Register
             </button>
+            <ModalComponent>
+              {modalContent === "register" ? <Register /> : <Referral />}
+            </ModalComponent>
           </div>
         </div>
       </div>
