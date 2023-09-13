@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 export default function PaymentReceivedModal() {
   const [isOpen, setIsOpen] = useState(true);
@@ -19,8 +20,10 @@ export default function PaymentReceivedModal() {
       });
   }, [id]);
 
+  const navigate = useNavigate();
+
   const handleClose = () => {
-    setIsOpen(false);
+    navigate("/");
   };
 
   return (
