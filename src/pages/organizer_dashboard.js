@@ -1,6 +1,7 @@
 import EventsTable from "../components/eventsTable";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import CreateEventPage from "./createEventPage";
 import { useEffect, useState } from "react";
 
 export default function OrgDashboard() {
@@ -37,6 +38,12 @@ export default function OrgDashboard() {
                     <h2 className="text-xl font-bold mb-4">Events Table</h2>
                     <EventsTable />
                 </div>
+                <button
+                    href="/create-event"
+                    className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded"
+                >
+                    Create Event
+                </button>
             </div>
             <Footer />
         </div>

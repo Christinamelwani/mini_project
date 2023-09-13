@@ -10,6 +10,7 @@ import Checkout from "./pages/checkout";
 import OrgLogin from "./pages/organizer_login";
 import OrgDashboard from "./pages/organizer_dashboard";
 import Events from "./pages/events";
+import CreateEventPage from "./pages/createEventPage";
 import api from "./api";
 import { setEvents } from "./features/event/eventSlice";
 import { setUser } from "./features/user/userSlice";
@@ -47,6 +48,7 @@ function App() {
       <Route path="/organizer/dashboard" element={<OrgDashboard />} />
       <Route path="/events/:id" element={<Events />} />
       <Route path="/search" element={<SearchPage />} />
+      <Route path="/create-event" element={<CreateEventPage />} />
     </Routes>
   );
 }
