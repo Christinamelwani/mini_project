@@ -353,7 +353,7 @@
       "age": 28,
       "gender": "male",
       "address": "Jl. Sudirman No. 123, Jakarta",
-      "points": 120
+      "points": 160
     },
     {
       "id": 2,
@@ -364,7 +364,7 @@
       "age": 35,
       "gender": "female",
       "address": "Jl. Ahmad Yani No. 456, Bandung",
-      "points": 140
+      "points": 150
     },
     {
       "id": 3,
@@ -910,6 +910,16 @@
       "code": "5e0dk",
       "user_id": 7,
       "id": 69
+    },
+    {
+      "code": "sj6ty",
+      "user_id": 1,
+      "id": 70
+    },
+    {
+      "code": "dw52j",
+      "user_id": 1,
+      "id": 71
     }
   ],
   "coupons": [

@@ -18,7 +18,7 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-      <div className="bg-white p-16 rounded w-[60%] h-[95%] ">
+      <div className="bg-white p-16 rounded lg:w-[60%] lg:h-[95%] h-full w-full">
         <div>
           <button
             className=" p-3 font-bold text-orange-600 text-2xl"
@@ -28,9 +28,9 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
           </button>
         </div>
         <div className="flex flex-col border rounded p-1 justify-between border-b-2">
-          <div className="border-b flex flex-row justify-between">
+          <div className="border-b flex flex-col lg:flex-row justify-between">
             <div className="flex flex-row items-center">
-              <ol className="flex items-center w-full p-3 space-x-2 text-sm font-medium text-center ">
+              <ol className="flex flex-col lg:flex-row items-center w-full p-3 space-x-2 text-sm font-medium text-center ">
                 <li className="flex items-center text-black">
                   <span className="flex items-center justify-center w-5 h-5 mr-2 text-xs border border-orange-600 rounded-full shrink-0 ">
                     1

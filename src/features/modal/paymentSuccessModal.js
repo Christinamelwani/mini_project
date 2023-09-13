@@ -51,11 +51,16 @@ export default function PaymentSuccessModal() {
           onClick={() => setIsOpen(false)}
           className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center"
         >
-          <div className="md:bg-white md:p-16 md:rounded md:w-[60%] md:h-[95%]">
+          <div className="md:bg-white md:p-16 md:rounded md:w-[60%] md:h-[95%] items-center flex justify-center">
             {isContentLoading ? (
-              <Lottie animationData={animationData} />
+              <Lottie
+                className="w-[50%] h-[50%]"
+                animationData={animationData}
+              />
             ) : (
-              <></>
+              <div className="mt-[500px]">
+                <p>Loading...</p>
+              </div>
             )}
           </div>
         </div>

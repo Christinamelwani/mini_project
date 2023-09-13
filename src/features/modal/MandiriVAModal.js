@@ -182,7 +182,7 @@ export default function BcaVAModal({ isOpen, onClose, selectedBank }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-      <div className="bg-white p-16 rounded w-[60%] h-[95%] ">
+      <div className="bg-white p-16 rounded lg:w-[60%] lg:h-[95%] h-full w-full">
         <div>
           <button
             className=" p-3 font-bold text-orange-600 text-2xl"
