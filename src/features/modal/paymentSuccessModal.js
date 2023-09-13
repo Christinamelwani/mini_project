@@ -30,14 +30,11 @@ export default function PaymentSuccessModal() {
   }, [isContentLoading]);
 
   useEffect(() => {
-    // This useEffect will trigger when isContentLoading becomes true.
     if (isContentLoading) {
-      // After 2 seconds (adjust this time as needed), open the PaymentReceivedModal.
       const modalTimeout = setTimeout(() => {
         setShowPaymentReceivedModal(true);
-      }, 2000); // Set the time to open the PaymentReceivedModal after 2 seconds.
+      }, 2000);
 
-      // Cleanup the timeout on unmount or when isContentLoading changes
       return () => {
         clearTimeout(modalTimeout);
       };
