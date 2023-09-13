@@ -15,6 +15,7 @@ import { setEvents } from "./features/event/eventSlice";
 import { setUser } from "./features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import SearchPage from "./pages/searchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
       <Route path="/organizer/login" element={<OrgLogin />} />
       <Route path="/organizer/dashboard" element={<OrgDashboard />} />
       <Route path="/events/:id" element={<Events />} />
+      <Route path="/search" element={<SearchPage />} />
     </Routes>
   );
 }
