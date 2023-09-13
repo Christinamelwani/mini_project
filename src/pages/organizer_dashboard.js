@@ -17,20 +17,19 @@ export default function OrgDashboard() {
         <div>
             <Navbar />
             <div className="container mx-auto mt-8">
-                {/* Poster Section (Placeholder) */}
-                <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-                    <h2 className="text-xl font-bold mb-4">Profile Picture</h2>
-                    <img src={Organizer.image} alt={Organizer.name} className="w-1/4" />
-                    {/* Include poster components or information here */}
-                </div>
-
                 {/* Organizer Information Card */}
-                <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
-                    <h2 className="text-xl font-bold mb-4">Organizer Information</h2>
-                    <p className="mb-2">Name: {Organizer.name}</p>
-                    <p className="mb-2">Email: {Organizer.email}</p>
-                    <p className="mb-2">Contact: {Organizer.contact}</p>
-                    <p className="mb-2">Address: {Organizer.address}</p>
+                <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex items-center">
+                    <div className="w-1/8">
+                        {/* Profile picture here */}
+                        <img src={Organizer.image} alt="Profile Picture" className="rounded-full w-32 h-32" />
+                    </div>
+                    <div className="w-7/8 ml-6">
+                        <h2 className="text-xl font-bold mb-4">Organizer Information</h2>
+                        <p className="mb-2">Name: {Organizer.name}</p>
+                        <p className="mb-2">Email: {Organizer.email}</p>
+                        <p className="mb-2">Contact: {Organizer.contact}</p>
+                        <p className="mb-2">Address: {Organizer.address}</p>
+                    </div>
                 </div>
 
                 {/* Events Table Card */}
